@@ -25,8 +25,9 @@ app.get('/restaurants/:restaurant_id', (req,res) => {
 app.get('/search', (req,res) => {
   const restaurants = restaurantList.results.filter(el => el.name.toLowerCase().includes(req.query.keyword.trim().toLowerCase()) || el.category.toLowerCase().includes(req.query.keyword.trim().toLowerCase()))
 
+  // 如果關鍵字找不到任何東西
   if (restaurants.length<1) {
-    res.send('你的關鍵字找不到東西')
+    res.render('index', {restaurants: restaurants, keyword: req.query.keyword+"(此搜尋沒有結果)" })
     return
   }
 
