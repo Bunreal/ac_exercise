@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EXPRESS__ac_exercise</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    nav {
+      margin: 10px;
+    }
+    .container {
+      display: flex;
+      font-size: 20px;
+    }
+    .container a {
+      display: block;
+      margin-right: 10px;
+      background-color: rgba(255, 203, 196, 0.801);
+      border-radius: 8px;
+      width: 100px;
+      text-align: center;
+      padding: 5px;
+      text-decoration: none;
+    }
+    .container a:hover {
+      background-color: burlywood;
+    }
+    .container div{
+      flex: 1
+    }
+
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <div>
+        <a href="/">回到首頁</a>  
+      </div>
+      <a href="/about">About</a>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </nav>
+
+  {{{body}}}
+
+</body>
+</html>
