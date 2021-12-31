@@ -2,11 +2,13 @@
 html {
   box-sizing: border-box;
 }
+
 *,
 *:before,
 *:after {
   box-sizing: inherit;
 }
+
 body,
 h1,
 h2,
@@ -22,15 +24,18 @@ menu {
   padding: 0;
   font-weight: normal;
 }
+
 table {
   border: none;
   border-spacing: 0;
   border-collapse: collapse;
 }
+
 th,
 td {
   text-align: initial;
 }
+
 /*reset end*/
 
 /* global */
@@ -44,11 +49,12 @@ td {
   --header-color: #cdcdcd;
   --table-grey-text: #828282;
   --white: white;
+  --background-white: white;
   --main-text-color: black;
   --header-text-color: black;
   --table-background-color: #ffffff;
-  --logo-url: url("https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/logo.svg");
-  --darkmode-toggle-url: url("https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/darkmode-on.svg");
+  --logo-url: url("https://raw.githubusercontent.com/WendellLiu/alphacamp-frontend-course/master/data-table/static/icons/logo.svg");
+  --darkmode-toggle-url: url("https://raw.githubusercontent.com/WendellLiu/alphacamp-frontend-course/master/data-table/static/icons/darkmode-on.svg");
 }
 
 [data-theme="dark"] {
@@ -61,130 +67,33 @@ td {
   --header-color: #2e2e2e;
   --table-grey-text: rgba(255, 255, 255, 37%);
   --white: white;
+  --background-white: #6b6b6b;
   --main-text-color: white;
   --header-text-color: #aaaaaa;
   --table-background-color: #3a3a3a;
-  --logo-url: url("https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/logo-dark.svg");
-  --darkmode-toggle-url: url("https://raw.githubusercontent.com/ALPHACamp/WFE-data-table/0f97f3113bff18353154b8644eb0b31fff2a3bef/icons/darkmode-off.svg");
+  --logo-url: url("https://raw.githubusercontent.com/WendellLiu/alphacamp-frontend-course/master/data-table/static/icons/logo-dark.svg");
+  --darkmode-toggle-url: url("https://raw.githubusercontent.com/WendellLiu/alphacamp-frontend-course/master/data-table/static/icons/darkmode-off.svg");
 }
-
 html {
   font-size: 14px;
   height: 100%;
   color: var(--main-text-color);
 }
-/* global end */
 
+/* global end */
 body {
   display: flex;
   height: 100%;
   min-height: 480px;
   background: var(--background-grey);
 }
+
 .sidebar {
   display: flex;
   flex-direction: column;
   width: 100px;
   background: var(--main-dark);
-  padding-top: 30px;
-}
-.main {
-  flex: 1;
-  padding: 42px 50px 68px 50px;
-  max-height: 100vh;
-  overflow-y: auto;
-}
-.main__title {
-  margin-bottom: 34px;
-  font-size: 48px;
-}
-.main__table {
-  background: var(--table-background-color);
-}
-
-.table__header {
-  background: var(--header-color);
-  color: var(--header-text-color);
-}
-.table__row {
-  height: 50px;
-  border-bottom: 1px solid var(--border-color);
-}
-.table__cell {
-  text-align: center;
-}
-.table__cell--checkbox {
-  width: 50px;
-}
-.table__cell--id {
-  width: 80px;
-}
-.table__cell--name {
-  width: 140px;
-}
-.table__cell--advertiser {
-  width: 140px;
-}
-.cell__advertiser__line {
-  display: block;
-}
-.cell__advertiser__line--group {
-  color: var(--table-grey-text);
-}
-.table__cell--description {
-  width: 200px;
-}
-.table__cell--price {
-  width: 140px;
-  position: relative;
-}
-.table__cell--starttime {
-  width: 140px;
-  position: relative;
-}
-.table__cell--endtime {
-  width: 140px;
-  position: relative;
-}
-.table__cell--action {
-  width: 210px;
-  position: relative;
-}
-.cell__action__icon {
-  cursor: pointer;
-}
-.header__cell__icon {
-  cursor: pointer;
-  position: absolute;
-  right: 0;
-}
-
-.action__menu {
-  z-index: 999;
-  position: absolute;
-  right: 50%;
-  top: 100%;
-  width: 140px;
-  height: 120px;
-  background: var(--white);
-  border: 1px solid var(--border-color);
-}
-.hidden {
-  display: none;
-}
-.menu__body {
-  display: flex;
-  flex-direction: column;
-  padding-left: 12px;
-}
-.menu__item {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  height: 40px;
-}
-.menu__item__icon {
-  margin-right: 14px;
+  padding: 30px 0;
 }
 
 .sidebar__home {
@@ -194,11 +103,13 @@ body {
   margin-bottom: 83px;
   cursor: pointer;
 }
+
 .sidebar__menu {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .sidebar__menu__link {
   display: flex;
   align-items: center;
@@ -207,9 +118,11 @@ body {
   width: 40px;
   height: 40px;
 }
+
 .sidebar__menu__link--active {
-  background-color: var(--white);
+  background: var(--white);
 }
+
 .sidebar__menu > div:not(:last-child) {
   margin-bottom: 55px;
 }
@@ -221,6 +134,153 @@ body {
   height: 100%;
   width: 100%;
 }
+
 .sidebar__darkmode__input {
   display: none;
+}
+
+.main {
+  flex: 1;
+  padding: 42px 50px 68px 50px;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.main__title {
+  margin-bottom: 34px;
+  font-size: 48px;
+}
+.main__table {
+  background: var(--table-background-color);
+  width: 100%;
+}
+
+.table__header {
+  background: var(--header-color);
+  color: var(--header-text-color);
+}
+
+.table__body {
+  display: block;
+  height: 600px;
+  overflow-y: scroll;
+}
+
+.table__row {
+  width: 100%;
+  height: 50px;
+  display: table;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.table__cell {
+  text-align: center;
+}
+
+.table__cell--checkbox {
+  width: 50px;
+}
+
+.table__cell--id {
+  width: 80px;
+}
+
+.table__cell--name {
+  width: 140px;
+}
+
+.table__cell--advertiser {
+  width: 140px;
+}
+
+.cell__advertiser__line {
+  display: block;
+}
+
+.cell__advertiser__line--group {
+  color: var(--table-grey-text);
+}
+
+.table__cell--description {
+  width: 200px;
+}
+
+.table__cell--price {
+  width: 140px;
+  position: relative;
+}
+
+.table__cell--starttime {
+  width: 140px;
+  position: relative;
+}
+
+.table__cell--endtime {
+  width: 140px;
+  position: relative;
+}
+.table__cell--action {
+  width: 210px;
+  position: relative;
+}
+
+.cell__action__icon {
+  cursor: pointer;
+}
+
+.header__cell__icon {
+  cursor: pointer;
+}
+
+.header__cell__icon--right {
+  position: absolute;
+  right: 0;
+}
+
+.action__menu {
+  z-index: 1;
+  position: absolute;
+  right: 50%;
+  top: 100%;
+  width: 140px;
+  height: 120px;
+  background: var(--background-white);
+  border: 1px solid var(--border-color);
+}
+
+.hidden {
+  display: none;
+}
+
+.menu__body {
+  display: flex;
+  flex-direction: column;
+  padding-left: 12px;
+}
+
+.menu__item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 40px;
+}
+
+.menu__item__icon {
+  margin-right: 14px;
+}
+
+/* 視窗高度太小的 Fix */
+@media screen and (max-height: 479px) {
+  .sidebar {
+    height: 100%;
+    position: fixed;
+    overflow-y: auto;
+  }
+  .main {
+    margin-left: 100px;
+  }
+}
+
+.mainColor {
+  background-color: var(--main-color);
 }
