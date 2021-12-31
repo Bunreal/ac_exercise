@@ -93,7 +93,7 @@ inputs.forEach( el => {
 
 // 被選擇的row要更換背景
 // 取得所有的row的那一格checklist
-const checkboxes = document.querySelectorAll('.table__cell--checkbox')
+const checkboxes = document.querySelectorAll('.table__body .table__cell--checkbox')
 // define handlers
 function toggleCheckbox(e){
   // 取得整條row
@@ -104,4 +104,19 @@ function toggleCheckbox(e){
 // 只要row的checklist改變，就改變整個row的背景
 checkboxes.forEach( el => {
   el.addEventListener('change', toggleCheckbox)
+})
+
+// 全選的功能設置
+let checkall = document.querySelector('#checkall');
+checkall.addEventListener('change', () => {
+  const inputs = document.querySelectorAll('.table__body input')
+  inputs.forEach( el => {
+    if (checkall.checked){
+      el.checked = true
+      el.parentNode.parentNode.classList.add('mainColor')
+    } else {
+      el.checked = false
+      el.parentNode.parentNode.classList.remove('mainColor')
+    }
+  })
 })
