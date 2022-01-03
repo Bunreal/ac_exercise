@@ -48,3 +48,13 @@ header {
     }
   }
 }
+
+@media screen and (max-width: 1000px) {
+  header {
+    grid-template-columns: 1fr;
+    .header__menu,
+    .header__icon {
+      display: none;
+    }
+  }
+}

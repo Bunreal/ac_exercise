@@ -50,4 +50,14 @@ header .header__icon .header__icon__item {
   margin-left: 31px;
 }
 
+@media screen and (max-width: 1000px) {
+  header {
+    grid-template-columns: 1fr;
+  }
+  header .header__menu,
+header .header__icon {
+    display: none;
+  }
+}
+
 /*# sourceMappingURL=output.css.map */
