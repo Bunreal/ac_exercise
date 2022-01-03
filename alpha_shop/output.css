@@ -1,3 +1,53 @@
+* {
+  padding: 0;
+  margin: 0;
+}
 
+ul,
+ol {
+  list-style: none;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 200px 1fr;
+  width: 100%;
+  padding-top: 17px;
+}
+header .header__menu {
+  position: relative;
+}
+header .header__menu ul {
+  position: absolute;
+  left: 160px;
+}
+header .header__menu .header__menu__li {
+  display: inline;
+  font-size: 16px;
+  margin-right: 32px;
+}
+header .header__logo {
+  position: relative;
+}
+header .header__logo .header__logo__img {
+  width: 170px;
+  height: 30px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+header .header__icon {
+  position: relative;
+}
+header .header__icon div {
+  position: absolute;
+  right: 160px;
+}
+header .header__icon .header__icon__item {
+  top: 18px;
+  width: 24px;
+  height: 24px;
+  margin-left: 31px;
+}
 
 /*# sourceMappingURL=output.css.map */
