@@ -11,6 +11,7 @@ header {
   display: grid;
   grid-template-columns: 1fr 200px 1fr;
   width: 100%;
+  height: 100px;
   padding-top: 17px;
   .header__menu {
     position: relative;
@@ -55,6 +56,89 @@ header {
     .header__menu,
     .header__icon {
       display: none;
+    }
+  }
+}
+
+main {
+  .main__display {
+    display: grid;
+    grid-template-columns: 6fr 5fr;
+    background-color: yellow;
+    .main__display__left {
+      background-color: pink;
+      .main__display__left__stepper {
+        height: 200px;
+        background-color: gray;
+        display: flex;
+        padding: 20px;
+        .main__display__left__stepper__step {
+          background-color: honeydew;
+          flex: 1;
+          text-align: center;
+          position: relative;
+          display: flex;
+          width: 150px;
+          justify-content: center;
+          .circle-container {
+            height: 24px;
+            width: 24px;
+            background-color: black;
+            border-radius: 50%;
+            color: white;
+          }
+          &:nth-child(1) .circle-container {
+            height: 24px;
+            width: 24px;
+            background-color: black;
+            border-radius: 50%;
+            border: black 2px solid;
+            color: white;
+            &::after {
+              content: "1";
+            }
+          }
+          &:nth-child(2) .circle-container {
+            height: 24px;
+            width: 24px;
+            background-color: white;
+            border-radius: 50%;
+            border: black 2px solid;
+            color: black;
+            &::after {
+              content: "2";
+            }
+          }
+          &:nth-child(3) .circle-container {
+            height: 24px;
+            width: 24px;
+            background-color: white;
+            border-radius: 50%;
+            border: black 2px solid;
+            color: black;
+            &::after {
+              content: "3";
+            }
+          }
+
+          .connect-line {
+            display: block;
+            height: 3px;
+            background-color: gray;
+            position: absolute;
+            top: 12px;
+            right: calc(50% + 80px);
+            left: calc(-50% + 80px);
+          }
+          .label-container {
+            color: black;
+            margin-left: 20px;
+          }
+        }
+      }
+    }
+    .main__display__right {
+      background-color: orange;
     }
   }
 }

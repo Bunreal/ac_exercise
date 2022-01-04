@@ -12,6 +12,7 @@ header {
   display: grid;
   grid-template-columns: 1fr 200px 1fr;
   width: 100%;
+  height: 100px;
   padding-top: 17px;
 }
 header .header__menu {
@@ -58,6 +59,85 @@ header .header__icon .header__icon__item {
 header .header__icon {
     display: none;
   }
+}
+main .main__display {
+  display: grid;
+  grid-template-columns: 6fr 5fr;
+  background-color: yellow;
+}
+main .main__display .main__display__left {
+  background-color: pink;
+}
+main .main__display .main__display__left .main__display__left__stepper {
+  height: 200px;
+  background-color: gray;
+  display: flex;
+  padding: 20px;
+}
+main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step {
+  background-color: honeydew;
+  flex: 1;
+  text-align: center;
+  position: relative;
+  display: flex;
+  width: 150px;
+  justify-content: center;
+}
+main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step .circle-container {
+  height: 24px;
+  width: 24px;
+  background-color: black;
+  border-radius: 50%;
+  color: white;
+}
+main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step:nth-child(1) .circle-container {
+  height: 24px;
+  width: 24px;
+  background-color: black;
+  border-radius: 50%;
+  border: black 2px solid;
+  color: white;
+}
+main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step:nth-child(1) .circle-container::after {
+  content: "1";
+}
+main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step:nth-child(2) .circle-container {
+  height: 24px;
+  width: 24px;
+  background-color: white;
+  border-radius: 50%;
+  border: black 2px solid;
+  color: black;
+}
+main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step:nth-child(2) .circle-container::after {
+  content: "2";
+}
+main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step:nth-child(3) .circle-container {
+  height: 24px;
+  width: 24px;
+  background-color: white;
+  border-radius: 50%;
+  border: black 2px solid;
+  color: black;
+}
+main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step:nth-child(3) .circle-container::after {
+  content: "3";
+}
+main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step .connect-line {
+  display: block;
+  height: 3px;
+  background-color: gray;
+  position: absolute;
+  top: 12px;
+  right: calc(50% + 80px);
+  left: calc(-50% + 80px);
+}
+main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step .label-container {
+  color: black;
+  margin-left: 20px;
+}
+main .main__display .main__display__right {
+  background-color: orange;
 }
 
 /*# sourceMappingURL=output.css.map */
