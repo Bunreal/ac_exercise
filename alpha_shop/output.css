@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -135,6 +136,40 @@ main .main__display .main__display__left .main__display__left__stepper .main__di
 main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step .label-container {
   color: black;
   margin-left: 20px;
+}
+main .main__display .main__display__left .main__display__left__form .form__row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+main .main__display .main__display__left .main__display__left__form .form__row .item1 {
+  grid-column: 1/7;
+}
+main .main__display .main__display__left .main__display__left__form .form__row .item2 {
+  grid-column: 8/12;
+}
+main .main__display .main__display__left .main__display__left__form .form__row .item2 input {
+  display: block;
+  width: 100%;
+  height: 30px;
+}
+main .main__display .main__display__left .main__display__left__form .select-wrap {
+  border: blue 1px solid;
+  position: relative;
+  width: 100%;
+  height: 30px;
+}
+main .main__display .main__display__left .main__display__left__form .select-wrap::after {
+  content: "▾";
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+main .main__display .main__display__left .main__display__left__form select {
+  -webkit-appearance: none;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
 }
 main .main__display .main__display__right {
   background-color: orange;
