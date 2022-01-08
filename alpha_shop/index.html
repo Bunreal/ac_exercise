@@ -4,46 +4,50 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>ALPHA shop</title>
   <link rel="stylesheet" href="output.css">
 </head>
 <body>
   <header class="header">
+    <div class="header__menu__sm" style="display: none;">
+      <img src="./image/Vector@2x.png" style="width:20px; height: 15px; color: aquamarine;">
+    </div>
     <div class="header__menu">
       <ul>
-        <li class="header__menu__li">男款</li>
-        <li class="header__menu__li">女款</li>
-        <li class="header__menu__li">最新消息</li>
-        <li class="header__menu__li">客製商品</li>
-        <li class="header__menu__li">聯絡我們</li>
+        <li>男款</li>
+        <li>女款</li>
+        <li>最新消息</li>
+        <li>客製商品</li>
+        <li>聯絡我們</li>
       </ul>
     </div>
     <div class="header__logo">
-      <img src="./image/Logo@2x.png" class="header__logo__img">
+      <img src="./image/Logo@2x.png">
     </div>
     <div class="header__icon">
       <div>
-        <img src="./image/icon@2x_1.png" class="header__icon__item">
-        <img src="./image/icon@2x_2.png" class="header__icon__item">
-        <img src="./image/icon@2x_3.png" class="header__icon__item">
+        <img src="./image/icon@2x_1.png">
+        <img src="./image/icon@2x_2.png">
+        <img src="./image/icon@2x_3.png">
       </div>
     </div>
   </header>
+
   <main class="main">
-    <div class="main__title"><h2>結帳</h2></div>
+    <div class="title"><h2>結帳</h2></div>
     <div class="main__display">
       <div class="main__display__left">
-        <div class="main__display__left__stepper">
-          <div class="main__display__left__stepper__step active">
+        <div class="stepper">
+          <div class="step active">
             <div class="circle-container"></div>
             <div class="label-container">寄送地址</div>
           </div>
-          <div class="main__display__left__stepper__step">
+          <div class="step">
             <div class="circle-container"></div>
             <div class="connect-line"></div>
             <div class="label-container">運送方式</div>
           </div>
-          <div class="main__display__left__stepper__step">
+          <div class="step">
             <div class="circle-container"></div>
             <div class="connect-line"></div>
             <div class="label-container">付款資訊</div>
@@ -96,29 +100,31 @@
                     <input placeholder="請輸入地址" style="padding: 5px;" class="input__style">
                   </div>
                 </div>
+                <div class="divideLine"></div>
               </div>
               <div class="part d-none">
                 <h3>運送方式</h3>
                 <div class="form__row">
                   <div class="form__radio">
-                    <input type="radio" class="form__radio__input" name="test1">
+                    <input type="radio" name="test1">
                     <div class="form__radio__deliver">
-                      <div class="form__radio__method">標準運送</div>
-                      <div class="form__radio__duration">約3~7個工作天</div>
+                      <div class="deliver__method">標準運送</div>
+                      <div class="deliver__price">免費</div>
+                      <div class="deliver__duration">約3~7個工作天</div>
                     </div>
-                    <div class="form__radio__price">免費</div>
                   </div>
                 </div>
                 <div class="form__row">
                   <div class="form__radio">
-                    <input type="radio" class="form__radio__input" name="test1">
+                    <input type="radio" name="test1">
                     <div class="form__radio__deliver">
-                      <div class="form__radio__method">標準運送</div>
-                      <div class="form__radio__duration">約3~7個工作天</div>
+                      <div class="deliver__method">DHL貨運</div>
+                      <div class="deliver__price">$500</div>
+                      <div class="deliver__duration">48小時內送達</div>
                     </div>
-                    <div class="form__radio__price">免費</div>
                   </div>
                 </div>
+                <div class="divideLine"></div>
               </div>
               <div class="part d-none">
                 <h3>付款方式</h3>
@@ -147,7 +153,7 @@
               </div>
             </div>
             <div class="controlpanel">
-              <button disabled class="btnleft btn">← 上一步</button>
+              <button class="btnleft btn" style="display: none;">← 上一步</button>
               <button class="btnright btn">下一步 →</button>
             </div>
           </form>
@@ -155,7 +161,7 @@
       </div>
       <div class="main__display__right">
         <div class="totalrightview">
-          <h2>購物籃</h2>
+          <h4>購物籃</h4>
           <div class="havebuyItems">
             <div class="buyItem">
               <img src="image/shoplist1@2x.png">
@@ -196,6 +202,43 @@
       </div>
     </div>
   </main>
+  <footer>
+    <div class="infophoto">
+      <img src="image/Logo@2x.png" style="width: 176px; height: 31px;">
+    </div>
+    <div class="infoList">
+      <h3>客戶服務</h3>
+      <ul>
+        <li>運送說明</li>
+        <li>退換貨相關</li>
+        <li>付款資訊</li>
+        <li>FAQ</li>
+      </ul>
+    </div>
+    <div class="infoList">
+      <h3>關於我們</h3>
+      <ul>
+        <li>品牌故事</li>
+        <li>媒體聯繫</li>
+        <li>Press kit</li>
+      </ul>
+    </div>
+    <div class="infoList">
+      <h3>資訊</h3>
+      <ul>
+        <li>隱私權政策</li>
+        <li>Cookie</li>
+        <li>GDPR</li>
+      </ul>
+    </div>
+    <div class="infoList">
+      <h3>追蹤 ALPHA Shop</h3>
+      <p>+886 02123-45678</p>
+      <div class="icons">
+
+      </div>
+    </div>
+  </footer>
   <script src="main.js"></script>
 </body>
 </html>

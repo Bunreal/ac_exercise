@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/*reset css*/
 * {
   padding: 0;
   margin: 0;
@@ -9,29 +10,27 @@ ol {
   list-style: none;
 }
 
+/*header*/
 header {
-  display: grid;
-  grid-template-columns: 1fr 200px 1fr;
-  width: 100%;
-  height: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+  display: flex;
+  height: 60px;
   padding-top: 17px;
 }
 header .header__menu {
-  position: relative;
+  flex: 1;
 }
-header .header__menu ul {
-  position: absolute;
-  left: 160px;
-}
-header .header__menu .header__menu__li {
+header .header__menu ul li {
   display: inline;
   font-size: 16px;
   margin-right: 32px;
 }
 header .header__logo {
   position: relative;
+  width: 170px;
 }
-header .header__logo .header__logo__img {
+header .header__logo img {
   width: 170px;
   height: 30px;
   position: absolute;
@@ -40,102 +39,91 @@ header .header__logo .header__logo__img {
 }
 header .header__icon {
   position: relative;
+  flex: 1;
 }
 header .header__icon div {
   position: absolute;
-  right: 160px;
+  right: 0px;
 }
-header .header__icon .header__icon__item {
+header .header__icon img {
   top: 18px;
   width: 24px;
   height: 24px;
   margin-left: 31px;
 }
 
-@media screen and (max-width: 1000px) {
-  header {
-    grid-template-columns: 1fr;
-  }
-  header .header__menu,
-header .header__icon {
-    display: none;
-  }
+/*for stepper*/
+/*main*/
+main {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+main .title {
+  margin-top: 48px;
+  margin-bottom: 48px;
 }
 main .main__display {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  background-color: yellow;
+  height: 500px;
 }
 main .main__display .main__display__left {
-  background-color: pink;
   grid-column: 1/7;
 }
-main .main__display .main__display__left .main__display__left__stepper {
-  background-color: gray;
+main .main__display .main__display__left .stepper {
   display: flex;
-  padding: 20px;
+  width: 100%;
 }
-main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step {
-  background-color: honeydew;
+main .main__display .main__display__left .stepper .step {
   flex: 1;
   text-align: center;
   position: relative;
   display: flex;
   width: 150px;
-  justify-content: center;
+  justify-content: start;
 }
-main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step .circle-container {
+main .main__display .main__display__left .stepper .step .circle-container {
   height: 24px;
   width: 24px;
-}
-main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step:nth-child(1) .circle-container {
-  height: 24px;
-  width: 24px;
-  background-color: black;
   border-radius: 50%;
   border: black 2px solid;
+  background-color: white;
+  color: black;
+}
+main .main__display .main__display__left .stepper .step:nth-child(1) .circle-container {
+  background-color: black;
   color: white;
 }
-main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step:nth-child(1) .circle-container::after {
+main .main__display .main__display__left .stepper .step:nth-child(1) .circle-container::after {
   content: "1";
 }
-main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step:nth-child(2) .circle-container {
-  height: 24px;
-  width: 24px;
-  background-color: white;
-  border-radius: 50%;
-  border: black 2px solid;
-  color: black;
-}
-main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step:nth-child(2) .circle-container::after {
+main .main__display .main__display__left .stepper .step:nth-child(2) .circle-container::after {
   content: "2";
 }
-main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step:nth-child(3) .circle-container {
-  height: 24px;
-  width: 24px;
-  background-color: white;
-  border-radius: 50%;
-  border: black 2px solid;
-  color: black;
-}
-main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step:nth-child(3) .circle-container::after {
+main .main__display .main__display__left .stepper .step:nth-child(3) .circle-container::after {
   content: "3";
 }
-main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step.checked .circle-container::after {
+main .main__display .main__display__left .stepper .step.checked .circle-container::after {
   content: "✔";
 }
-main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step .connect-line {
+main .main__display .main__display__left .stepper .step .connect-line {
   display: block;
   height: 3px;
-  background-color: gray;
+  background-color: black;
   position: absolute;
   top: 12px;
-  right: calc(50% + 80px);
-  left: calc(-50% + 80px);
+  right: calc(80% + 70px);
+  left: calc(-80% + 70px);
 }
-main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step .label-container {
+main .main__display .main__display__left .stepper .step .label-container {
   color: black;
-  margin-left: 20px;
+  margin-left: 5px;
+}
+main .main__display .main__display__left .main__display__left__form .part {
+  margin-top: 64px;
+}
+main .main__display .main__display__left .main__display__left__form label {
+  font-size: 12px;
 }
 main .main__display .main__display__left .main__display__left__form .form__row {
   width: 100%;
@@ -167,10 +155,18 @@ main .main__display .main__display__left .main__display__left__form .form__row .
   grid-column: 1/9;
 }
 main .main__display .main__display__left .main__display__left__form .form__row > div {
-  padding: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+main .main__display .main__display__left .main__display__left__form .form__row > div:nth-child(1) {
+  padding-right: 50px;
 }
 main .main__display .main__display__left .main__display__left__form .select-wrap {
   position: relative;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  padding: 6px;
 }
 main .main__display .main__display__left .main__display__left__form .select-wrap::after {
   content: "▾";
@@ -183,8 +179,9 @@ main .main__display .main__display__left .main__display__left__form select {
   -webkit-appearance: none;
   cursor: pointer;
   width: 100%;
-  height: 100%;
-  border-radius: 8px;
+  height: 30px;
+  line-height: 30px;
+  border: none;
 }
 main .main__display .main__display__left .main__display__left__form .form__radio {
   background-color: white;
@@ -192,28 +189,46 @@ main .main__display .main__display__left .main__display__left__form .form__radio
   display: flex;
   flex-wrap: wrap;
   grid-column: 1/11;
-  margin: 15px;
-  border-radius: 8px;
+  border-radius: 4px;
   align-items: center;
+  height: 60px;
+  margin: 10px;
 }
-main .main__display .main__display__left .main__display__left__form .form__radio .form__radio__input {
-  width: 25px;
-  height: 25px;
+main .main__display .main__display__left .main__display__left__form .form__radio input {
+  margin: 10px;
+  width: 20px;
+  height: 20px;
   -webkit-appearance: none;
   border-radius: 50%;
   border: black 1px solid;
   cursor: pointer;
 }
-main .main__display .main__display__left .main__display__left__form .form__radio .form__radio__input:checked {
+main .main__display .main__display__left .main__display__left__form .form__radio input:checked {
   box-shadow: inset 0 0 0 5px black;
 }
 main .main__display .main__display__left .main__display__left__form .form__radio .form__radio__deliver {
   flex: 1;
-  margin-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+main .main__display .main__display__left .main__display__left__form .form__radio .form__radio__deliver .deliver__method {
+  flex: 1;
+  font-size: 14px;
+}
+main .main__display .main__display__left .main__display__left__form .form__radio .form__radio__deliver .deliver__price {
+  text-align: right;
+  flex: 1;
+  font-size: 12px;
+}
+main .main__display .main__display__left .main__display__left__form .form__radio .form__radio__deliver .deliver__duration {
+  flex: 100%;
+  font-size: 12px;
 }
 main .main__display .main__display__left .main__display__left__form .controlpanel {
   position: relative;
   background-color: blue;
+  margin-top: 20px;
 }
 main .main__display .main__display__left .main__display__left__form .controlpanel .btn {
   width: 175px;
@@ -234,24 +249,30 @@ main .main__display .main__display__left .main__display__left__form .controlpane
   left: 0;
 }
 main .main__display .main__display__right {
-  background-color: orange;
   grid-column: 8/13;
 }
 main .main__display .main__display__right .totalrightview {
   border-radius: 8px;
   border: 1px black solid;
+  padding: 32px 32px 24px 24px;
+}
+main .main__display .main__display__right .totalrightview h4 {
+  margin-bottom: 34px;
 }
 main .main__display .main__display__right .buyItem {
   display: flex;
   margin-bottom: 20px;
+  width: 100%;
 }
 main .main__display .main__display__right .buyItem img {
   width: 100px;
   height: 100px;
   border-radius: 8px;
+  margin-right: 24px;
 }
 main .main__display .main__display__right .buyItem .itemContent {
   display: flex;
+  width: 100%;
   flex-wrap: wrap;
 }
 main .main__display .main__display__right .buyItem .itemName {
@@ -259,6 +280,7 @@ main .main__display .main__display__right .buyItem .itemName {
 }
 main .main__display .main__display__right .buyItem .itemPrice {
   flex: 30%;
+  text-align: right;
 }
 main .main__display .main__display__right .buyItem .itemControl {
   width: 60%;
@@ -285,12 +307,34 @@ main .main__display .main__display__right .shoppingFee,
 main .main__display .main__display__right .sum {
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+footer {
+  height: 284px;
+  width: 100%;
+  background-color: #f6f7f8;
+  display: flex;
+  align-items: center;
+}
+footer .infophoto {
+  position: relative;
+  width: 300px;
+}
+footer img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+footer .infoList {
+  margin-right: 120px;
 }
 
 .input__style {
   width: 100%;
   height: 30px;
-  border-radius: 8px;
+  border-radius: 4px;
   border: 1px solid black;
 }
 
@@ -302,6 +346,52 @@ main .main__display .main__display__right .sum {
   width: 100%;
   height: 2px;
   background-color: #e6e6eb;
+}
+
+/* for sm screen */
+@media screen and (max-width: 375px) {
+  header {
+    margin: 0px;
+    display: block;
+  }
+  header .header__menu,
+header .header__icon {
+    display: none;
+  }
+  header .header__logo {
+    position: relative;
+    width: 100%;
+  }
+  header .header__logo img {
+    width: 170px;
+    height: 30px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  header .header__menu__sm {
+    display: block;
+    background-color: cornflowerblue;
+  }
+
+  main {
+    margin: 0;
+  }
+  main .main__display {
+    display: flex;
+    flex-direction: column;
+  }
+  main .main__display .main__display__left__form .main__display__left__form__content .part .form__row .item1,
+main .main__display .main__display__left__form .main__display__left__form__content .part .form__row .item2,
+main .main__display .main__display__left__form .main__display__left__form__content .part .form__row .item3,
+main .main__display .main__display__left__form .main__display__left__form__content .part .form__row .item4 {
+    grid-column: 1/12;
+    padding: 0;
+  }
+
+  footer {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=output.css.map */

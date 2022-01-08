@@ -4,18 +4,14 @@ const btnControl = document.querySelector('.controlpanel')
 const nextBtn = btnControl.querySelector('.btnright')
 const prevBtn = btnControl.querySelector('.btnleft')
 
-const stepControl = document.querySelector('.main__display__left__stepper')
-const steps = stepControl.querySelectorAll('.main__display__left__stepper__step')
+const stepControl = document.querySelector('.stepper')
+const steps = stepControl.querySelectorAll('.step')
 
 let step = 0;
-
-console.log(steps[step])
 
 function handleBtnControlClicked(e) {
   e.preventDefault()
   const nowStep = steps[step]
-  console.log(nowStep)
-  console.log(1)
 
   if (e.target.matches('.btnright') && e.target.innerHTML==='下一步 →') {
     const nextStep = steps[step+1]
@@ -39,9 +35,9 @@ function handleBtnControlClicked(e) {
 
 function setBtnDisabled () {
   if(step === 0) {
-    prevBtn.setAttribute('disabled', 'disabled')
+    prevBtn.style.display = 'none'
   } else {
-    prevBtn.removeAttribute('disabled')
+    prevBtn.style.display = 'block'
   }
 
   if(step === 2) {
