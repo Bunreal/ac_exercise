@@ -63,14 +63,14 @@ header .header__icon {
 }
 main .main__display {
   display: grid;
-  grid-template-columns: 6fr 5fr;
+  grid-template-columns: repeat(12, 1fr);
   background-color: yellow;
 }
 main .main__display .main__display__left {
   background-color: pink;
+  grid-column: 1/7;
 }
 main .main__display .main__display__left .main__display__left__stepper {
-  height: 200px;
   background-color: gray;
   display: flex;
   padding: 20px;
@@ -87,9 +87,6 @@ main .main__display .main__display__left .main__display__left__stepper .main__di
 main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step .circle-container {
   height: 24px;
   width: 24px;
-  background-color: black;
-  border-radius: 50%;
-  color: white;
 }
 main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step:nth-child(1) .circle-container {
   height: 24px;
@@ -124,6 +121,9 @@ main .main__display .main__display__left .main__display__left__stepper .main__di
 main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step:nth-child(3) .circle-container::after {
   content: "3";
 }
+main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step.checked .circle-container::after {
+  content: "✔";
+}
 main .main__display .main__display__left .main__display__left__stepper .main__display__left__stepper__step .connect-line {
   display: block;
   height: 3px;
@@ -138,29 +138,38 @@ main .main__display .main__display__left .main__display__left__stepper .main__di
   margin-left: 20px;
 }
 main .main__display .main__display__left .main__display__left__form .form__row {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
 main .main__display .main__display__left .main__display__left__form .form__row .item1,
 main .main__display .main__display__left .main__display__left__form .form__row .item5 {
-  grid-column: 1/4;
+  grid-column: 1/5;
 }
 main .main__display .main__display__left .main__display__left__form .form__row .item2,
 main .main__display .main__display__left .main__display__left__form .form__row .item6 {
-  grid-column: 5/12;
+  grid-column: 5/13;
 }
 main .main__display .main__display__left .main__display__left__form .form__row .item2 input,
 main .main__display .main__display__left .main__display__left__form .form__row .item6 input {
   display: block;
 }
-main .main__display .main__display__left .main__display__left__form .form__row .item3 {
-  grid-column: 1/6;
+main .main__display .main__display__left .main__display__left__form .form__row .item3,
+main .main__display .main__display__left .main__display__left__form .form__row .item9 {
+  grid-column: 1/7;
 }
-main .main__display .main__display__left .main__display__left__form .form__row .item4 {
-  grid-column: 7/12;
+main .main__display .main__display__left .main__display__left__form .form__row .item4,
+main .main__display .main__display__left .main__display__left__form .form__row .item10 {
+  grid-column: 7/13;
+}
+main .main__display .main__display__left .main__display__left__form .form__row .item7,
+main .main__display .main__display__left .main__display__left__form .form__row .item8 {
+  grid-column: 1/9;
+}
+main .main__display .main__display__left .main__display__left__form .form__row > div {
+  padding: 20px;
 }
 main .main__display .main__display__left .main__display__left__form .select-wrap {
-  border: blue 1px solid;
   position: relative;
 }
 main .main__display .main__display__left .main__display__left__form .select-wrap::after {
@@ -175,14 +184,16 @@ main .main__display .main__display__left .main__display__left__form select {
   cursor: pointer;
   width: 100%;
   height: 100%;
+  border-radius: 8px;
 }
 main .main__display .main__display__left .main__display__left__form .form__radio {
   background-color: white;
   border: 1px solid black;
   display: flex;
   flex-wrap: wrap;
-  width: 600px;
-  padding: 5px;
+  grid-column: 1/11;
+  margin: 15px;
+  border-radius: 8px;
   align-items: center;
 }
 main .main__display .main__display__left .main__display__left__form .form__radio .form__radio__input {
@@ -202,11 +213,14 @@ main .main__display .main__display__left .main__display__left__form .form__radio
 }
 main .main__display .main__display__right {
   background-color: orange;
+  grid-column: 8/13;
 }
 
 .input__style {
   width: 100%;
   height: 30px;
+  border-radius: 8px;
+  border: 1px solid black;
 }
 
 /*# sourceMappingURL=output.css.map */
