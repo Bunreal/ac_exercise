@@ -50,106 +50,112 @@
           </div>
         </div>
         <div class="main__display__left__form">
-          <div class="main__display__left__form__content">
-            <div class="part">
-              <h3>寄送地址</h3>
-              <div class="form__row">
-                <div class="item1">
-                  <label>稱謂</label>
-                  <div class="select-wrap input__style">
-                    <select>
-                      <option>先生</option>
-                      <option>小姐</option>
-                      <option>朋友</option>
-                    </select>
+          <form>
+            <div class="main__display__left__form__content">
+              <div class="part">
+                <h3>寄送地址</h3>
+                <div class="form__row">
+                  <div class="item1">
+                    <label>稱謂</label>
+                    <div class="select-wrap input__style">
+                      <select>
+                        <option>先生</option>
+                        <option>小姐</option>
+                        <option>朋友</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="item2">
+                    <label>姓名</label>
+                    <input placeholder="請輸入姓名" style="padding: 5px;" class="input__style">
                   </div>
                 </div>
-                <div class="item2">
-                  <label>姓名</label>
-                  <input placeholder="請輸入姓名" style="padding: 5px;" class="input__style">
-                </div>
-              </div>
-              <div class="form__row">
-                <div class="item3">
-                  <label>電話</label>
-                  <input placeholder="請輸入電話" style="padding: 5px;" class="input__style">
-                </div>
-                <div class="item4">
-                  <label>Email</label>
-                  <input placeholder="請輸入電子郵件" style="padding: 5px;" class="input__style">
-                </div>
-              </div>
-              <div class="form__row">
-                <div class="item5">
-                  <label>縣市</label>
-                  <div class="select-wrap input__style">
-                    <select>
-                      <option>先生</option>
-                      <option>小姐</option>
-                      <option>朋友</option>
-                    </select>
+                <div class="form__row">
+                  <div class="item3">
+                    <label>電話</label>
+                    <input placeholder="請輸入電話" style="padding: 5px;" class="input__style">
+                  </div>
+                  <div class="item4">
+                    <label>Email</label>
+                    <input placeholder="請輸入電子郵件" style="padding: 5px;" class="input__style">
                   </div>
                 </div>
-                <div class="item6">
-                  <label>地址</label>
-                  <input placeholder="請輸入地址" style="padding: 5px;" class="input__style">
+                <div class="form__row">
+                  <div class="item5">
+                    <label>縣市</label>
+                    <div class="select-wrap input__style">
+                      <select>
+                        <option>先生</option>
+                        <option>小姐</option>
+                        <option>朋友</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="item6">
+                    <label>地址</label>
+                    <input placeholder="請輸入地址" style="padding: 5px;" class="input__style">
+                  </div>
+                </div>
+              </div>
+              <div class="part d-none">
+                <h3>運送方式</h3>
+                <div class="form__row">
+                  <div class="form__radio">
+                    <input type="radio" class="form__radio__input" name="test1">
+                    <div class="form__radio__deliver">
+                      <div class="form__radio__method">標準運送</div>
+                      <div class="form__radio__duration">約3~7個工作天</div>
+                    </div>
+                    <div class="form__radio__price">免費</div>
+                  </div>
+                </div>
+                <div class="form__row">
+                  <div class="form__radio">
+                    <input type="radio" class="form__radio__input" name="test1">
+                    <div class="form__radio__deliver">
+                      <div class="form__radio__method">標準運送</div>
+                      <div class="form__radio__duration">約3~7個工作天</div>
+                    </div>
+                    <div class="form__radio__price">免費</div>
+                  </div>
+                </div>
+              </div>
+              <div class="part d-none">
+                <h3>付款方式</h3>
+                <div class="form__row">
+                  <div class="item7">
+                    <label>持卡人姓名</label>
+                    <input placeholder="John Doe" style="padding: 5px;" class="input__style">
+                  </div>
+                </div>
+                <div class="form__row">
+                  <div class="item8">
+                    <label>卡號</label>
+                    <input placeholder="1111 2222 3333 4444" style="padding: 5px;" class="input__style" maxlength="16">
+                  </div>
+                </div>
+                <div class="form__row">
+                  <div class="item9">
+                    <label>有效期限</label>
+                    <input placeholder="MM/YY" style="padding: 5px;" class="input__style" maxlength="4">
+                  </div>
+                  <div class="item10">
+                    <label>CVC/CCV</label>
+                    <input placeholder="123" style="padding: 5px;" class="input__style" maxlength="3">
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="part">
-              <h3>運送方式</h3>
-              <div class="form__row">
-                <div class="form__radio">
-                  <input type="radio" class="form__radio__input" name="test1">
-                  <div class="form__radio__deliver">
-                    <div class="form__radio__method">標準運送</div>
-                    <div class="form__radio__duration">約3~7個工作天</div>
-                  </div>
-                  <div class="form__radio__price">免費</div>
-                </div>
-              </div>
-              <div class="form__row">
-                <div class="form__radio">
-                  <input type="radio" class="form__radio__input" name="test1">
-                  <div class="form__radio__deliver">
-                    <div class="form__radio__method">標準運送</div>
-                    <div class="form__radio__duration">約3~7個工作天</div>
-                  </div>
-                  <div class="form__radio__price">免費</div>
-                </div>
-              </div>
+            <div class="controlpanel">
+              <button disabled class="btnleft btn">← 上一步</button>
+              <button class="btnright btn">下一步 →</button>
             </div>
-            <div class="part">
-              <h3>付款方式</h3>
-              <div class="form__row">
-                <div class="item7">
-                  <label>持卡人姓名</label>
-                  <input placeholder="John Doe" style="padding: 5px;" class="input__style">
-                </div>
-              </div>
-              <div class="form__row">
-                <div class="item8">
-                  <label>卡號</label>
-                  <input placeholder="1111 2222 3333 4444" style="padding: 5px;" class="input__style" maxlength="16">
-                </div>
-              </div>
-              <div class="form__row">
-                <div class="item9">
-                  <label>有效期限</label>
-                  <input placeholder="MM/YY" style="padding: 5px;" class="input__style" maxlength="4">
-                </div>
-                <div class="item10">
-                  <label>CVC/CCV</label>
-                  <input placeholder="123" style="padding: 5px;" class="input__style" maxlength="3">
-                </div>
-              </div>
-            </div>
-          </div>
-          <button>next</button>
+          </form>
         </div>
       </div>
       <div class="main__display__right">f</div>
     </div>
   </main>
+  <script src="main.js"></script>
 </body>
 </html>

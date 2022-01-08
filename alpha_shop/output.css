@@ -211,6 +211,28 @@ main .main__display .main__display__left .main__display__left__form .form__radio
   flex: 1;
   margin-left: 20px;
 }
+main .main__display .main__display__left .main__display__left__form .controlpanel {
+  position: relative;
+  background-color: blue;
+}
+main .main__display .main__display__left .main__display__left__form .controlpanel .btn {
+  width: 175px;
+  height: 46px;
+  border-radius: 8px;
+  border: none;
+}
+main .main__display .main__display__left .main__display__left__form .controlpanel .btnright {
+  background-color: #f67599;
+  color: white;
+  position: absolute;
+  right: 0;
+}
+main .main__display .main__display__left .main__display__left__form .controlpanel .btnleft {
+  background-color: white;
+  color: black;
+  position: absolute;
+  left: 0;
+}
 main .main__display .main__display__right {
   background-color: orange;
   grid-column: 8/13;
@@ -221,6 +243,10 @@ main .main__display .main__display__right {
   height: 30px;
   border-radius: 8px;
   border: 1px solid black;
+}
+
+.d-none {
+  display: none;
 }
 
 /*# sourceMappingURL=output.css.map */

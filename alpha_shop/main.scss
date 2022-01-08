@@ -217,6 +217,28 @@ main {
           .form__radio__duration {
           }
         }
+        .controlpanel {
+          position: relative;
+          background-color: blue;
+          .btn {
+            width: 175px;
+            height: 46px;
+            border-radius: 8px;
+            border: none;
+          }
+          .btnright {
+            background-color: #f67599;
+            color: white;
+            position: absolute;
+            right: 0;
+          }
+          .btnleft {
+            background-color: white;
+            color: black;
+            position: absolute;
+            left: 0;
+          }
+        }
       }
     }
     .main__display__right {
@@ -231,4 +253,8 @@ main {
   height: 30px;
   border-radius: 8px;
   border: 1px solid black;
+}
+
+.d-none {
+  display: none;
 }
