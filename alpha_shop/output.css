@@ -348,6 +348,10 @@ footer .infoList {
   background-color: #e6e6eb;
 }
 
+.sm_controlpanel {
+  display: none;
+}
+
 /* for sm screen */
 @media screen and (max-width: 375px) {
   header {
@@ -375,22 +379,108 @@ header .header__icon {
   }
 
   main {
-    margin: 0;
+    margin: 10px;
   }
   main .main__display {
     display: flex;
     flex-direction: column;
   }
-  main .main__display .main__display__left__form .main__display__left__form__content .part .form__row .item1,
-main .main__display .main__display__left__form .main__display__left__form__content .part .form__row .item2,
-main .main__display .main__display__left__form .main__display__left__form__content .part .form__row .item3,
-main .main__display .main__display__left__form .main__display__left__form__content .part .form__row .item4 {
-    grid-column: 1/12;
+  main .main__display .main__display__left .stepper {
+    justify-content: space-between;
+  }
+  main .main__display .main__display__left .stepper .step .label-container {
+    display: none;
+  }
+  main .main__display .main__display__left .stepper .step .connect-line {
+    display: block;
+    height: 3px;
+    background-color: black;
+    position: absolute;
+    top: 12px;
+    right: calc(90% + 25px);
+    left: calc(-90% + 25px);
+  }
+  main .main__display .main__display__left__form .main__display__left__form__content .part .form__row > div {
     padding: 0;
+    margin: 0;
+  }
+  main .main__display .main__display__left__form .main__display__left__form__content .part .item1 {
+    grid-column: 1/5;
+  }
+  main .main__display .main__display__left__form .main__display__left__form__content .part .item2 {
+    grid-column: 6/12;
+  }
+  main .main__display .main__display__left__form .main__display__left__form__content .part .item3,
+main .main__display .main__display__left__form .main__display__left__form__content .part .item4,
+main .main__display .main__display__left__form .main__display__left__form__content .part .item5,
+main .main__display .main__display__left__form .main__display__left__form__content .part .item6,
+main .main__display .main__display__left__form .main__display__left__form__content .part .item7,
+main .main__display .main__display__left__form .main__display__left__form__content .part .item8 {
+    grid-column: 1/12;
+  }
+  main .main__display .controlpanel {
+    display: none;
+  }
+  main .main__display .main__display__right {
+    margin: 10px;
+  }
+  main .main__display .main__display__right .totalrightview {
+    padding: 5px;
+  }
+  main .main__display .main__display__right .totalrightview h4 {
+    display: none;
+  }
+  main .main__display .main__display__right .totalrightview img {
+    margin-right: 5px;
+  }
+  main .main__display .main__display__right .totalrightview .itemContent {
+    display: flex;
+    flex-direction: row;
+  }
+  main .main__display .main__display__right .totalrightview .itemContent .itemName {
+    order: 1;
+    text-align: right;
+  }
+  main .main__display .main__display__right .totalrightview .itemContent .itemPrice {
+    order: 3;
+  }
+  main .main__display .main__display__right .totalrightview .itemContent .itemControl {
+    order: 2;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+  }
+  main .sm_controlpanel {
+    display: flex;
+    position: relative;
+    margin-top: 20px;
+  }
+  main .sm_controlpanel .btn {
+    height: 46px;
+    border-radius: 8px;
+    border: none;
+  }
+  main .sm_controlpanel .sm_btnright {
+    flex: 1;
+    background-color: #f67599;
+    color: white;
+  }
+  main .sm_controlpanel .sm_btnleft {
+    flex: 1;
+    background-color: white;
+    color: black;
   }
 
   footer {
     display: none;
+  }
+
+  .sm_noShow {
+    display: none;
+  }
+
+  .sm_Show {
+    display: block;
   }
 }
 
