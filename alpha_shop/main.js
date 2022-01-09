@@ -49,7 +49,7 @@ function setBtnDisabled () {
 
 btnControl.addEventListener('click', handleBtnControlClicked)
 
-// sm
+// 用於 sm 的 button 
 const sm_btnControl = document.querySelector('.sm_controlpanel')
 const sm_nextBtn = sm_btnControl.querySelector('.sm_btnright')
 const sm_prevBtn = sm_btnControl.querySelector('.sm_btnleft')

@@ -475,12 +475,9 @@ main .main__display .main__display__left__form .main__display__left__form__conte
     display: none;
   }
 
+  /* 表示 small 畫面的時候，不會顯示 */
   .sm_noShow {
     display: none;
-  }
-
-  .sm_Show {
-    display: block;
   }
 }
 
