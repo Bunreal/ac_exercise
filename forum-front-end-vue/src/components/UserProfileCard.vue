@@ -45,6 +45,14 @@ export default {
         'Followings': []
       })
     }
+  },
+  methods: {
+    addFollowing(){
+      
+    },
+    deleteFollowing(){
+
+    }
   }
 }
 </script>
