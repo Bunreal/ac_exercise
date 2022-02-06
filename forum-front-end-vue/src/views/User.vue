@@ -13,6 +13,7 @@
       </div>
       <div class="col-md-8">
         <!-- UserCommentsCard -->
+        <UserCommentsCard :userComments="userData.Comments"/>
         <br>
         <!-- UserFavoritedRestaurantsCard -->
       </div>
@@ -25,6 +26,7 @@
 import UserProfileCard from '../components/UserProfileCard.vue'
 import UserFollowingsCard from '../components/UserFollowingsCard.vue'
 import UserFollowersCard from '../components/UserFollowersCard.vue'
+import UserCommentsCard from '../components/UserCommentsCard.vue'
 
 const dummyData = {
   'profile': {
@@ -1206,7 +1208,8 @@ export default {
   components: {
     UserProfileCard,
     UserFollowingsCard,
-    UserFollowersCard
+    UserFollowersCard,
+    UserCommentsCard
   },
   data(){
     return {
