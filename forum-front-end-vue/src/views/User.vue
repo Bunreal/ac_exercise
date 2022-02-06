@@ -2,7 +2,7 @@
  <div class="album py-5 bg-light">
   <div class="container">
     <!-- UserProfileCard -->
-    <UserProfileCard :userData="userData"/>
+    <UserProfileCard :initialUserData="userData"/>
     <div class="row">
       <div class="col-md-4">
         <!-- UserFollowingsCard -->
@@ -16,6 +16,7 @@
         <UserCommentsCard :userComments="userData.Comments"/>
         <br>
         <!-- UserFavoritedRestaurantsCard -->
+        <UserFavoritedRestaurantsCard :userFavoritedRestaurants="userData.FavoritedRestaurants"/>
       </div>
     </div>
   </div>
@@ -27,6 +28,7 @@ import UserProfileCard from '../components/UserProfileCard.vue'
 import UserFollowingsCard from '../components/UserFollowingsCard.vue'
 import UserFollowersCard from '../components/UserFollowersCard.vue'
 import UserCommentsCard from '../components/UserCommentsCard.vue'
+import UserFavoritedRestaurantsCard from '../components/UserFavoritedRestaurantsCard.vue'
 
 const dummyData = {
   'profile': {
@@ -1209,7 +1211,8 @@ export default {
     UserProfileCard,
     UserFollowingsCard,
     UserFollowersCard,
-    UserCommentsCard
+    UserCommentsCard,
+    UserFavoritedRestaurantsCard
   },
   data(){
     return {
@@ -1225,7 +1228,8 @@ export default {
         'Comments':[],
         'FavoritedRestaurants':[],
         'Followers': [],
-        'Followings': []
+        'Followings': [],
+        'isFollowed': false
       }
     }
   },
@@ -1236,7 +1240,7 @@ export default {
   methods: {
     fetchUser(userId) {
       console.log(userId)
-      const { profile } = dummyData
+      const { profile, isFollowed } = dummyData
       const { id, name, email, password, isAdmin, image, createdAt, updatedAt, Comments, FavoritedRestaurants, Followers, Followings} = profile
       this.userData = {
         ...this.userData,
@@ -1251,7 +1255,8 @@ export default {
         Comments,
         FavoritedRestaurants,
         Followers,
-        Followings
+        Followings,
+        isFollowed
       }
     }
   }
