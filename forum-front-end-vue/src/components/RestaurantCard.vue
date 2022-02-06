@@ -4,14 +4,18 @@
     <div class="card mb-4">
       <img
         class="card-img-top"
-        :src="restaurant.image"
+        :src="restaurant.image | emptyImage"
         alt="Card image cap"
         width="286px"
         height="180px"
       >
       <div class="card-body">
         <p class="card-text title-wrap">
-          <a href="#">{{ restaurant.name }}</a>
+          <router-link
+            :to="{ name: 'restaurant', params: { id: restaurant.id }}"
+          >
+            {{ restaurant.name }}
+          </router-link>
         </p>
         <span class="badge badge-secondary">{{ restaurant.Category.name }}</span>
         <p class="card-text text-truncate">
@@ -58,6 +62,8 @@
 
 // ./src/component/RestaurantCard.vue
 <script>
+import { emptyImageFilter } from './../utils/mixins'
+
 export default {
   props: {
     initialRestaurant: {
@@ -65,6 +71,7 @@ export default {
       required: true
     }
   },
+  mixins: [emptyImageFilter],
   data () {
     return {
       restaurant: this.initialRestaurant
