@@ -18,10 +18,10 @@
           </ul>
           <p></p>
           <form action="/following/3" method="POST" style="display: contents;">
-            <button type="submit" class="btn btn-primary" v-if="userData.id === currentUser.id">
-              Edit
-            </button>
-            <div v-else>
+            <router-link :to="{ name: 'user-edit', params: { id: userData.id }}">
+              <button type="submit" class="btn btn-primary" v-if="userData.id === currentUser.id">Edit</button>
+            </router-link>
+            <div v-if="!userData.id === currentUser.id">
               <button type="submit" class="btn btn-primary" v-if="!userData.isFollowed" @click.stop.prevent="addFollowing">
                 Follow
               </button>
