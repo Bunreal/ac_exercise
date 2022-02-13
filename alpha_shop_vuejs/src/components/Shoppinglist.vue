@@ -112,6 +112,11 @@ const dummyData = [
 ]
 
 export default {
+  props: {
+    initialDeliver: {
+      type: String
+    }
+  },
   data(){
     return{
       shoppingData: [],
@@ -162,8 +167,11 @@ export default {
         money += el.number * el.price
       })
       this.initialSum = money
-      this.shoppingFee =  money > 1000 ? 0 : 100
-      this.finalSum = money + this.shoppingFee
+      if(this.shoppingData.length>1){
+        this.finalSum = money + this.shoppingFee
+      }else{
+        this.finalSum = 0
+      }
     },
     updateList(){
       this.shoppingData = this.shoppingData.filter(item=>item.number!==0)
@@ -182,6 +190,10 @@ export default {
   watch: {
     finalSum(){
       this.updateData()
+    },
+    initialDeliver(){
+      this.shoppingFee = this.initialDeliver === '標準運送' ? 0 : 500
+      this.calMoney()
     }
   }
 }

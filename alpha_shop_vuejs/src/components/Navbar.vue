@@ -34,9 +34,12 @@
     justify-content: center;
     padding-top: 15px;
   }
-  #navBlock, #logo, #helpBlock {
+  #navBlock, #helpBlock {
     flex: 1;
     justify-content: space-between;
+  }
+  #logo {
+    flex: none
   }
   #navBlock > ul{
     display: flex;

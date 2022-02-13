@@ -15,7 +15,7 @@
         </div>
         <div id="right">
           <!-- component: shoppinglist -->
-          <Shoppinglist @updateShopList="updateShopList"/>
+          <Shoppinglist @updateShopList="updateShopList" :initialDeliver="allData.deliver"/>
         </div>
 
       </div>
@@ -59,8 +59,8 @@
   }
   #content{
     position: absolute;
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
@@ -122,7 +122,7 @@ export default {
       let printContent = ''
       Object.keys(data).map((key) => {
         //return [key, data[key]]
-        printContent += `${key}: ${data[key]}<br>`
+        printContent += `${key}: ${data[key]? data[key] : '沒有輸入'}<br>`
       })
       return printContent
     },

@@ -5,14 +5,18 @@
         <div class="step-circle"></div>
         <div class="step-label">寄送地址</div>
       </div>
+      <div class="stepL">
+        <div class="step-line"></div>
+      </div>
       <div class="step" :class="{active: currentStep === 2, checked: currentStep > 2}">
         <div class="step-circle"></div>
-        <div class="step-line"></div>
         <div class="step-label">運送方式</div>
+      </div>
+      <div class="stepL">
+        <div class="step-line"></div>
       </div>
       <div class="step" :class="{active: currentStep === 3}">
         <div class="step-circle"></div>
-        <div class="step-line"></div>
         <div class="step-label">付款資訊</div>
       </div>
     </div>
@@ -143,9 +147,11 @@
 <style scoped>
   #stepper {
     display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
   .step {
-    flex: 1;
+    flex: none;
     display: flex;
     text-align: center;
     position: relative;
@@ -165,24 +171,28 @@
   .step:nth-child(1) .step-circle::after {
     content: '1';
   }
-  .step:nth-child(2) .step-circle::after {
+  .step:nth-child(3) .step-circle::after {
     content: '2';
   }
-  .step:nth-child(3) .step-circle::after {
+  .step:nth-child(5) .step-circle::after {
     content: '3';
   }
   .step-label {
     margin-left: 5px;
   }
+  .stepL {
+    position: relative;
+    flex: 1;
+  }
   .step-line {
     display: block;
     height: 3px;
+    width: 50%;
     background-color: black;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    right: calc(80% + 70px);
-    left: calc(-80% + 70px);
+    left: 50%;
+    transform: translate(-50%,-50%);
   }
   .checked .step-circle{
     background-color: black;
@@ -230,7 +240,7 @@
 
 
   .input__style {
-    width: 100%;
+    width: calc(100% - 10px);
     height: 30px;
     border-radius: 4px;
     border: 1px solid black;
@@ -242,7 +252,7 @@
     width: 100%;
     height: 30px;
     line-height: 30px;
-    padding: 6px;
+    padding: 5px;
   }
   .select-wrap::after {
     content: "\25BE";
@@ -347,7 +357,7 @@ export default {
         'email': '',
         'city': {},
         'address': '',
-        'deliver': '',
+        'deliver': '標準運送',
         'creditCardName': '',
         'creditCardNum': '',
         'creditCardExpiredTime': '',
@@ -369,6 +379,9 @@ export default {
     updateData(){
       this.$emit('updateUserInfo', this.formData)
     }
+  },
+  created(){
+    this.updateData()
   },
   watch: {
     formData: {
