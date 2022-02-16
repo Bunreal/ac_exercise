@@ -11,10 +11,56 @@ ol {
 }
 
 /*for stepper*/
+/*header*/
+header {
+  margin-left: 5%;
+  margin-right: 5%;
+  display: grid;
+  grid-template-columns: repeat(13, minmax(80px, 1fr));
+  height: 60px;
+  padding-top: 17px;
+}
+header .nav {
+  display: none;
+}
+header .header__menu {
+  grid-column: 1/6;
+}
+header .header__menu ul li {
+  display: inline;
+  font-size: 16px;
+  margin-right: 32px;
+}
+header .header__logo {
+  grid-column: 6/9;
+  position: relative;
+}
+header .header__logo img {
+  width: 170px;
+  height: 30px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+header .header__icon {
+  position: relative;
+  grid-column: 9/14;
+}
+header .header__icon div {
+  position: absolute;
+  right: 0px;
+}
+header .header__icon img {
+  top: 18px;
+  width: 24px;
+  height: 24px;
+  margin-left: 31px;
+}
+
 /*main*/
 main {
-  margin-left: 8%;
-  margin-right: 8%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 main .title {
   margin-top: 48px;
@@ -22,11 +68,10 @@ main .title {
 }
 main .main__display {
   display: grid;
-  grid-template-columns: repeat(13, minmax(100px, 1fr));
+  grid-template-columns: repeat(13, minmax(80px, 1fr));
   height: 500px;
 }
-
-.main__display__left {
+main .main__display__left {
   grid-column: 1/7;
 }
 
@@ -35,7 +80,7 @@ main .main__display {
   width: 100%;
 }
 .stepper .step {
-  flex: 1;
+  flex: none;
   text-align: center;
   position: relative;
   display: flex;
@@ -45,13 +90,29 @@ main .main__display {
   height: 24px;
   width: 24px;
   border-radius: 50%;
-  border: black 2px solid;
+  border: #afb1bd 2px solid;
   background-color: white;
+  color: #afb1bd;
+  position: relative;
+}
+.stepper .step .label-container {
+  color: #afb1bd;
+  margin-left: 5px;
+}
+.stepper .step.active .circle-container {
+  color: black;
+  border: black 2px solid;
+}
+.stepper .step.active .label-container {
+  color: black;
+}
+.stepper .step.checked .label-container {
   color: black;
 }
 .stepper .step:nth-child(1) .circle-container {
   background-color: black;
   color: white;
+  border: black 2px solid;
 }
 .stepper .step:nth-child(1) .circle-container::after {
   content: "1";
@@ -68,12 +129,22 @@ main .main__display {
 .stepper .step:nth-child(5) .circle-container::after {
   content: "3";
 }
+.stepper .step .circle-container::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .stepper .step.checked .circle-container::after {
   content: "✔";
 }
-.stepper .step .label-container {
-  color: black;
-  margin-left: 5px;
+.stepper .step.checked .circle-container {
+  background-color: black;
+  border: black solid 2px;
+}
+.stepper .step.checked .circle-container::after {
+  content: "✔";
+  color: white;
 }
 .stepper .stepL {
   position: relative;
@@ -159,11 +230,12 @@ main .main__display {
   border: 1px solid black;
   display: flex;
   flex-wrap: wrap;
-  grid-column: 1/11;
+  grid-column: 1/13;
   border-radius: 4px;
   align-items: center;
-  height: 60px;
-  margin: 10px;
+  height: 40px;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 .main__display__left__form .form__radio input {
   margin: 10px;
@@ -220,6 +292,78 @@ main .main__display {
   left: 0;
 }
 
+.main__display__right {
+  grid-column: 9/14;
+}
+.main__display__right .totalrightview {
+  border-radius: 8px;
+  border: 1px black solid;
+  padding: 32px 32px 24px 24px;
+}
+.main__display__right .totalrightview h4 {
+  margin-bottom: 34px;
+}
+.main__display__right .buyItem {
+  display: flex;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.main__display__right .buyItem img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  margin-right: 24px;
+}
+.main__display__right .buyItem .itemContent {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.main__display__right .buyItem .itemName {
+  flex: 70%;
+}
+.main__display__right .buyItem .itemPrice {
+  flex: 30%;
+  text-align: right;
+}
+.main__display__right .buyItem .itemControl {
+  width: 60%;
+  display: flex;
+}
+.main__display__right .buyItem .itemControl .minus1,
+.main__display__right .buyItem .itemControl .plus1 {
+  width: 26px;
+  height: 26px;
+  background-color: #f0f0f5;
+  border-radius: 50%;
+  text-align: center;
+  position: relative;
+}
+.main__display__right .buyItem .itemControl > div {
+  margin-right: 20px;
+}
+.main__display__right .buyItem .itemControl .minus1::after {
+  content: "-";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.main__display__right .buyItem .itemControl .plus1::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.main__display__right .shoppingFee,
+.main__display__right .sum {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .input__style {
   width: calc(100% - 10px);
   height: 30px;
@@ -237,12 +381,57 @@ main .main__display {
   background-color: #e6e6eb;
 }
 
+.smmmm {
+  display: none;
+}
+
 .sm_controlpanel {
   display: none;
 }
 
 /* for sm screen */
 @media screen and (max-width: 375px) {
+  header {
+    margin: 0px;
+    display: flex;
+  }
+  header .header__menu,
+header .header__icon {
+    display: none;
+  }
+  header .header__logo {
+    flex: 1;
+    position: relative;
+  }
+  header .header__logo img {
+    width: 170px;
+    height: 30px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  header .nav {
+    display: block;
+    position: absolute;
+    top: 16px;
+    left: 6px;
+  }
+  header .nav .nav-toggle {
+    /*input*/
+    visibility: hidden;
+  }
+  header .nav .nav-toggle:checked header {
+    display: flex;
+    flex-direction: column;
+  }
+  header .nav .nav-toggle-label {
+    cursor: pointer;
+  }
+  header .nav .nav-toggle-label img {
+    width: 24px;
+    height: 24px;
+  }
+
   main {
     margin: 10px;
   }
@@ -250,93 +439,129 @@ main .main__display {
     display: flex;
     flex-direction: column;
   }
-  main .main__display .main__display__left .stepper {
+
+  .stepper {
     display: flex;
     justify-content: space-between;
   }
-  main .main__display .main__display__left .stepper .step {
-    width: auto;
+  .stepper .step {
+    flex: none;
   }
-  main .main__display .main__display__left .stepper .step .label-container {
+  .stepper .step .label-container {
     display: none;
   }
-  main .main__display .main__display__left .stepper .stepL {
-    display: none;
+  .stepper .stepL {
     position: relative;
     flex: 1;
   }
-  main .main__display .main__display__left .stepper .stepL .connect-line {
+  .stepper .stepL .connect-line {
     display: block;
   }
-  main .main__display .main__display__left__form .main__display__left__form__content .part .form__row > div {
+
+  .main__display__left__form .main__display__left__form__content .part .form__row > div {
     padding: 0;
     margin: 0;
   }
-  main .main__display .main__display__left__form .main__display__left__form__content .part .item1 {
+  .main__display__left__form .main__display__left__form__content .part .item1 {
     grid-column: 1/6;
   }
-  main .main__display .main__display__left__form .main__display__left__form__content .part .item2 {
+  .main__display__left__form .main__display__left__form__content .part .item2 {
     grid-column: 7/13;
   }
-  main .main__display .main__display__left__form .main__display__left__form__content .part .item3,
-main .main__display .main__display__left__form .main__display__left__form__content .part .item4,
-main .main__display .main__display__left__form .main__display__left__form__content .part .item5,
-main .main__display .main__display__left__form .main__display__left__form__content .part .item6,
-main .main__display .main__display__left__form .main__display__left__form__content .part .item7,
-main .main__display .main__display__left__form .main__display__left__form__content .part .item8 {
+  .main__display__left__form .main__display__left__form__content .part .item3,
+.main__display__left__form .main__display__left__form__content .part .item4,
+.main__display__left__form .main__display__left__form__content .part .item5,
+.main__display__left__form .main__display__left__form__content .part .item6,
+.main__display__left__form .main__display__left__form__content .part .item7,
+.main__display__left__form .main__display__left__form__content .part .item8 {
     grid-column: 1/13;
   }
-  main .main__display .controlpanel {
+  .main__display__left__form .main__display__left__form__content .part .item9 {
+    grid-column: 1/6;
+  }
+  .main__display__left__form .main__display__left__form__content .part .item10 {
+    grid-column: 7/13;
+  }
+  .main__display__left__form .main__display__left__form__content .select-wrap {
+    width: 96%;
+  }
+  .main__display__left__form .main__display__left__form__content .form__radio {
+    grid-column: 1/13;
+  }
+  .main__display__left__form .main__display__left__form__content .form__radio__deliver {
+    padding: 10px;
+  }
+  .main__display__left__form .main__display__left__form__content .deliverPart {
+    margin-bottom: 10px;
+  }
+
+  .controlpanel {
     display: none;
   }
-  main .main__display .main__display__right {
-    margin: 10px;
+
+  .main__display__right {
+    margin-top: 20px;
   }
-  main .main__display .main__display__right .totalrightview {
-    padding: 5px;
+  .main__display__right .totalrightview {
+    padding: 10px;
   }
-  main .main__display .main__display__right .totalrightview h4 {
+  .main__display__right .totalrightview h4 {
     display: none;
   }
-  main .main__display .main__display__right .totalrightview img {
+  .main__display__right .totalrightview img {
     margin-right: 5px;
   }
-  main .main__display .main__display__right .totalrightview .itemContent {
+  .main__display__right .totalrightview .itemContent {
     display: flex;
     flex-direction: row;
   }
-  main .main__display .main__display__right .totalrightview .itemContent .itemName {
+  .main__display__right .totalrightview .itemContent .itemName {
     order: 1;
     text-align: right;
   }
-  main .main__display .main__display__right .totalrightview .itemContent .itemPrice {
+  .main__display__right .totalrightview .itemContent .itemPrice {
     order: 3;
   }
-  main .main__display .main__display__right .totalrightview .itemContent .itemControl {
+  .main__display__right .totalrightview .itemContent .itemControl {
     order: 2;
     width: 100%;
     display: flex;
     justify-content: right;
   }
-  main .sm_controlpanel {
+  .main__display__right .totalrightview .itemContent .itemControl div {
+    margin-right: 0px;
+    margin-left: 20px;
+  }
+
+  .sm_controlpanel {
     display: flex;
     position: relative;
     margin-top: 20px;
   }
-  main .sm_controlpanel .btn {
+  .sm_controlpanel .btn {
     height: 46px;
     border-radius: 8px;
     border: none;
   }
-  main .sm_controlpanel .sm_btnright {
+  .sm_controlpanel .sm_btnright {
     flex: 1;
     background-color: #f67599;
     color: white;
   }
-  main .sm_controlpanel .sm_btnleft {
+  .sm_controlpanel .sm_btnleft {
     flex: 1;
     background-color: white;
     color: black;
+  }
+
+  .sm_noShow {
+    display: none;
+  }
+
+  .smmmm {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 10px;
   }
 }
 

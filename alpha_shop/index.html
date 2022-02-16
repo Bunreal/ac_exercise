@@ -9,6 +9,35 @@
 </head>
 <body>
 
+  <header class="header">
+    <div class="nav">
+      <label for="nav-toggle" class="nav-toggle-label">
+        <img src="./image/hamburger@2x.png">
+      </label>
+      <input type="checkbox" class="nav-toggle" id="nav-toggle">
+    </div>
+  
+    <div class="header__menu">
+      <ul>
+        <li>男款</li>
+        <li>女款</li>
+        <li>最新消息</li>
+        <li>客製商品</li>
+        <li>聯絡我們</li>
+      </ul>
+    </div>
+    <div class="header__logo">
+      <img src="./image/Logo@2x.png">
+    </div>
+    <div class="header__icon">
+      <div>
+        <img src="./image/icon@2x_1.png">
+        <img src="./image/icon@2x_2.png">
+        <img src="./image/icon@2x_3.png">
+      </div>
+    </div>
+  </header>
+
   <main class="main">
     <div class="title"><h2>結帳</h2></div>
     <div class="main__display">
@@ -84,9 +113,9 @@
               </div>
               <div class="part d-none">
                 <h3>運送方式</h3>
-                <div class="form__row">
+                <div class="form__row deliverPart">
                   <div class="form__radio">
-                    <input type="radio" name="test1">
+                    <input type="radio" name="test1" checked value="0">
                     <div class="form__radio__deliver">
                       <div class="deliver__method">標準運送</div>
                       <div class="deliver__price">免費</div>
@@ -94,9 +123,9 @@
                     </div>
                   </div>
                 </div>
-                <div class="form__row">
+                <div class="form__row deliverPart">
                   <div class="form__radio">
-                    <input type="radio" name="test1">
+                    <input type="radio" name="test1" value="500">
                     <div class="form__radio__deliver">
                       <div class="deliver__method">DHL貨運</div>
                       <div class="deliver__price">$500</div>
@@ -139,7 +168,54 @@
           </form>
         </div>
       </div>
-
+      <div class="main__display__right">
+        <div class="totalrightview">
+          <h4>購物籃</h4>
+          <div class="havebuyItems">
+            <div class="buyItem">
+              <img src="image/shoplist1@2x.png">
+              <div class="itemContent">
+                <div class="itemName">破壞補丁修身牛仔褲</div>
+                <div class="itemPrice">$3,999</div>
+                <div class="itemControl">
+                  <div class="minus1"></div>
+                  <div class="itemNum">1</div>
+                  <div class="plus1"></div>
+                </div>
+              </div>
+            </div>
+            <div class="buyItem">
+              <img src="image/shoplist2@2x.png">
+              <div class="itemContent">
+                <div class="itemName">刷色直筒牛仔褲</div>
+                <div class="itemPrice">$1,299</div>
+                <div class="itemControl">
+                  <div class="minus1"></div>
+                  <div class="itemNum">1</div>
+                  <div class="plus1"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="divideLine"></div>
+          <div class="shoppingFee">
+            <div class="blocktitle">運費</div>
+            <div class="blockprice">免費</div>
+          </div>
+          <div class="divideLine"></div>
+          <div class="sum">
+            <div class="blocktitle">小計</div>
+            <div class="blockprice">$5,298</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="divideLine smmmm""></div>
+      </div>
+      <div class="sm_controlpanel">
+        <button class="sm_btnleft btn" style="display: none;">← 上一步</button>
+        <button class="sm_btnright btn">下一步 →</button>
+      </div>
     </div>
   </main>
 
