@@ -1,0 +1,8 @@
+/*for stepper*/
+@mixin getStepNums($num) {
+  @for $i from 1 through $num {
+    &:nth-child(#{$i}) .circle-container::after {
+      content: "#{($i+1)/2}";
+    }
+  }
+}

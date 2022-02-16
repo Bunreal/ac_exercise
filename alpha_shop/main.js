@@ -93,3 +93,5 @@ function sm_setBtnDisabled () {
 }
 
 sm_btnControl.addEventListener('click', sm_handleBtnControlClicked)
+
+
