@@ -75,14 +75,14 @@
           <div class="part" v-show="currentStep === 2">
             <h3>運送方式</h3>
             <div class="form__row">
-              <div class="form__radio">
-                <input type="radio" name="deliver" v-model="formData.deliver" :value="'標準運送'">
-                <div class="deliverInfo">
-                  <div class="deliver__method">標準運送</div>
-                  <div class="deliver__price">免費</div>
-                  <div class="deliver__duration">約3~7個工作天</div>
+                <div class="form__radio">
+                  <input type="radio" name="deliver" v-model="formData.deliver" :value="'標準運送'" id="xxx">
+                  <div class="deliverInfo">
+                    <div class="deliver__method">標準運送</div>
+                    <div class="deliver__price">免費</div>
+                    <div class="deliver__duration">約3~7個工作天</div>
+                  </div>
                 </div>
-              </div>
             </div>
             <div class="form__row">
               <div class="form__radio">
@@ -163,6 +163,7 @@
     border: black 2px solid;
     background-color: white;
     color: black;
+    position: relative;
   }
   .step:nth-child(1) .step-circle{
     background-color: black;
@@ -170,12 +171,24 @@
   }
   .step:nth-child(1) .step-circle::after {
     content: '1';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
   }
   .step:nth-child(3) .step-circle::after {
     content: '2';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
   }
   .step:nth-child(5) .step-circle::after {
     content: '3';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
   }
   .step-label {
     margin-left: 5px;
@@ -207,7 +220,7 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
   }
-  .form__row label {
+  .form__row div > label {
     font-size: 12px;
   }
   .form__row > div {
@@ -268,6 +281,7 @@
     height: 30px;
     line-height: 30px;
     border: none;
+    background-color: white;
   }
 
   /* radio */
@@ -279,7 +293,7 @@
     grid-column: 1 / 11;
     border-radius: 4px;
     align-items: center;
-    height: 60px;
+    height: 40px;
     margin: 10px;
   }
   .form__radio input {

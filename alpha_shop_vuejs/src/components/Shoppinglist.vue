@@ -69,17 +69,27 @@
   }
   .minus1,
   .plus1 {
+    flex: none;
     width: 26px;
     height: 26px;
     background-color: #f0f0f5;
     border-radius: 50%;
     text-align: center;
+    position: relative;
   }
   .minus1::after {
     content: "\002D";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
   }
   .plus1::after {
     content: "\002B";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
   }
   .shoppingFee,
   .sum {
@@ -150,16 +160,13 @@ export default {
         if(item.id === itemId) {
           return {
             ...item,
-            number: item.number - 1
+            number: ((item.number - 1 === 0) && (this.shoppingData.length ===1)) ? item.number : item.number - 1
           }
         }
         return item
       })
       this.calMoney()
       this.updateList()
-      if(this.shoppingData.length<1){
-        alert("購物車已經空了，請加油")
-      }
     },
     calMoney(){
       let money = 0;
@@ -167,13 +174,17 @@ export default {
         money += el.number * el.price
       })
       this.initialSum = money
-      if(this.shoppingData.length>1){
+      
+      this.finalSum = money + this.shoppingFee
+      /*
+      if(this.shoppingData.length>0){
         this.finalSum = money + this.shoppingFee
       }else{
         this.finalSum = 0
       }
+      */
     },
-    updateList(){
+    updateList(){ // 把數量0的項目從資料清單刪除
       this.shoppingData = this.shoppingData.filter(item=>item.number!==0)
     },
     updateData(){

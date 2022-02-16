@@ -72,8 +72,8 @@
   #coverShadow{
     width: 100%;
     height: 100%;
-    background-color: cornflowerblue;
-    opacity: 0;
+    background-color: black;
+    opacity: 0.2;
     position: fixed;
   }
 
