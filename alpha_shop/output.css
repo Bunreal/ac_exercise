@@ -11,6 +11,70 @@ ol {
 }
 
 /*for stepper*/
+/*color*/
+:root {
+  --font-color: #2a2a2a;
+  --primary-bg: #ffffff;
+  --secondary-bg: #ffffff;
+  --form-border: #4a4a4a;
+  --main-logo: url("./image/Logo@2x.png");
+  --main-icon1: url("./image/icon@2x_1.png");
+  --main-icon2: url("./image/icon@2x_2.png");
+  --main-icon3: url("./image/icon@2x_3.png");
+  --step-label: black;
+  --step-circle: white;
+  --step-active: black;
+  --step-line: black;
+  --step-circle-container1: black;
+  --form-label: black;
+  --form-radio-bg: white;
+  --form-radio-border: white;
+  --form-radio-mainContent: black;
+  --form-radio-input-sd: black;
+  --form-radio-input-bg: white;
+  --shoppinglist-bg: white;
+  --shoppinglist-control-bg: #f0f0f5;
+  --shoppinglist-control-content: black;
+  --btnleft-bg: white;
+  --btnleft-color: black;
+  --divideLine: #e6e6eb;
+  --rightPart-border: black;
+}
+
+[data-theme=dark] {
+  --font-color: #ffffff;
+  --primary-bg: #121212;
+  --secondary-bg: #383838;
+  --form-border: #5e5e5e;
+  --main-logo: url("./image/Logo@2x_dark.png");
+  --main-icon1: url("./image/icon@2x_1_dark.png");
+  --main-icon2: url("./image/icon@2x_2_dark.png");
+  --main-icon3: url("./image/icon@2x_3_dark.png");
+  --step-label: #FFFFFF;
+  --step-circle: black;
+  --step-active: white;
+  --step-line: #ffffff;
+  --step-circle-container1: #333333;
+  --form-label: rgba(255, 255, 255, 0.4);
+  --form-radio-bg: black;
+  --form-radio-border: black;
+  --form-radio-mainContent: white;
+  --form-radio-input-sd: rgba(255, 255, 255, 0.4);
+  --form-radio-input-bg: white;
+  --shoppinglist-bg: #383838;
+  --shoppinglist-control-bg: #808080;
+  --shoppinglist-control-content: black;
+  --btnleft-bg: #121212;
+  --btnleft-color: white;
+  --divideLine: rgba(255, 255, 255, 0.2);
+  --rightPart-border: rgba(255, 255, 255, 0.2);
+}
+
+* {
+  color: var(--font-color);
+  background-color: var(--primary-bg);
+}
+
 /*header*/
 header {
   margin-left: 5%;
@@ -36,11 +100,14 @@ header .header__logo {
   position: relative;
 }
 header .header__logo img {
+  background-image: var(--main-logo);
   width: 170px;
   height: 30px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 header .header__icon {
   position: relative;
@@ -55,6 +122,17 @@ header .header__icon img {
   width: 24px;
   height: 24px;
   margin-left: 31px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+header .header__icon #icon1 {
+  background-image: var(--main-icon1);
+}
+header .header__icon #icon2 {
+  background-image: var(--main-icon2);
+}
+header .header__icon #icon3 {
+  background-image: var(--main-icon3);
 }
 
 /*main*/
@@ -91,26 +169,26 @@ main .main__display__left {
   width: 24px;
   border-radius: 50%;
   border: #afb1bd 2px solid;
-  background-color: white;
+  background-color: var(--step-circle);
   color: #afb1bd;
   position: relative;
 }
 .stepper .step .label-container {
-  color: #afb1bd;
+  color: #AFB1BD;
   margin-left: 5px;
 }
 .stepper .step.active .circle-container {
-  color: black;
-  border: black 2px solid;
+  color: var(--step-active);
+  border: var(--step-active) 2px solid;
 }
 .stepper .step.active .label-container {
-  color: black;
+  color: var(--step-label);
 }
 .stepper .step.checked .label-container {
-  color: black;
+  color: var(--step-label);
 }
 .stepper .step:nth-child(1) .circle-container {
-  background-color: black;
+  background-color: var(--step-circle-container1);
   color: white;
   border: black 2px solid;
 }
@@ -139,8 +217,8 @@ main .main__display__left {
   content: "✔";
 }
 .stepper .step.checked .circle-container {
-  background-color: black;
-  border: black solid 2px;
+  background-color: var(--step-circle-container1);
+  border: var(--step-circle-container1) solid 2px;
 }
 .stepper .step.checked .circle-container::after {
   content: "✔";
@@ -154,7 +232,7 @@ main .main__display__left {
   display: block;
   height: 3px;
   width: 50%;
-  background-color: black;
+  background-color: var(--step-line);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -166,6 +244,7 @@ main .main__display__left {
 }
 .main__display__left__form label {
   font-size: 12px;
+  color: var(--form-label);
 }
 .main__display__left__form .form__row {
   width: 100%;
@@ -226,8 +305,8 @@ main .main__display__left {
   border: none;
 }
 .main__display__left__form .form__radio {
-  background-color: white;
-  border: 1px solid black;
+  background-color: var(--form-radio-bg);
+  border: 1px solid var(--form-border);
   display: flex;
   flex-wrap: wrap;
   grid-column: 1/13;
@@ -243,11 +322,11 @@ main .main__display__left {
   height: 20px;
   -webkit-appearance: none;
   border-radius: 50%;
-  border: black 1px solid;
+  border: var(--form-border) 1px solid;
   cursor: pointer;
 }
 .main__display__left__form .form__radio input:checked {
-  box-shadow: inset 0 0 0 5px black;
+  box-shadow: inset 0 0 0 5px var(--form-radio-input-sd);
 }
 .main__display__left__form .form__radio .form__radio__deliver {
   flex: 1;
@@ -258,15 +337,19 @@ main .main__display__left {
 .main__display__left__form .form__radio .form__radio__deliver .deliver__method {
   flex: 1;
   font-size: 14px;
+  background-color: var(--form-radio-bg);
 }
 .main__display__left__form .form__radio .form__radio__deliver .deliver__price {
   text-align: right;
   flex: 1;
   font-size: 12px;
+  background-color: var(--form-radio-bg);
 }
 .main__display__left__form .form__radio .form__radio__deliver .deliver__duration {
   flex: 100%;
   font-size: 12px;
+  background-color: var(--form-radio-bg);
+  color: gray;
 }
 .main__display__left__form .controlpanel {
   position: relative;
@@ -286,8 +369,8 @@ main .main__display__left {
   right: 0;
 }
 .main__display__left__form .controlpanel .btnleft {
-  background-color: white;
-  color: black;
+  background-color: var(--btnleft-bg);
+  color: var(--btnleft-color);
   position: absolute;
   left: 0;
 }
@@ -296,15 +379,21 @@ main .main__display__left {
   grid-column: 9/14;
 }
 .main__display__right .totalrightview {
+  background-color: var(--secondary-bg);
   border-radius: 8px;
-  border: 1px black solid;
+  border: 1px var(--rightPart-border) solid;
   padding: 32px 32px 24px 24px;
 }
 .main__display__right .totalrightview h4 {
   margin-bottom: 34px;
+  background-color: var(--shoppinglist-bg);
+}
+.main__display__right .havebuyItems {
+  background-color: var(--shoppinglist-bg);
 }
 .main__display__right .buyItem {
   display: flex;
+  background-color: var(--shoppinglist-bg);
   margin-bottom: 20px;
   width: 100%;
 }
@@ -315,26 +404,30 @@ main .main__display__left {
   margin-right: 24px;
 }
 .main__display__right .buyItem .itemContent {
+  background-color: var(--shoppinglist-bg);
   display: flex;
   width: 100%;
   flex-wrap: wrap;
 }
 .main__display__right .buyItem .itemName {
+  background-color: var(--shoppinglist-bg);
   flex: 70%;
 }
 .main__display__right .buyItem .itemPrice {
+  background-color: var(--shoppinglist-bg);
   flex: 30%;
   text-align: right;
 }
 .main__display__right .buyItem .itemControl {
   width: 60%;
   display: flex;
+  background-color: var(--shoppinglist-bg);
 }
 .main__display__right .buyItem .itemControl .minus1,
 .main__display__right .buyItem .itemControl .plus1 {
   width: 26px;
   height: 26px;
-  background-color: #f0f0f5;
+  background-color: var(--shoppinglist-control-bg);
   border-radius: 50%;
   text-align: center;
   position: relative;
@@ -347,6 +440,7 @@ main .main__display__left {
   position: absolute;
   top: 50%;
   left: 50%;
+  color: var(--shoppinglist-control-content);
   transform: translate(-50%, -50%);
 }
 .main__display__right .buyItem .itemControl .plus1::after {
@@ -355,6 +449,10 @@ main .main__display__left {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: var(--shoppinglist-control-content);
+}
+.main__display__right .buyItem .itemControl .itemNum {
+  background-color: var(--shoppinglist-bg);
 }
 .main__display__right .shoppingFee,
 .main__display__right .sum {
@@ -362,13 +460,18 @@ main .main__display__left {
   justify-content: space-between;
   margin-top: 20px;
   margin-bottom: 20px;
+  background-color: var(--shoppinglist-bg);
+}
+.main__display__right .shoppingFee > div,
+.main__display__right .sum > div {
+  background-color: var(--shoppinglist-bg);
 }
 
 .input__style {
   width: calc(100% - 10px);
   height: 30px;
   border-radius: 4px;
-  border: 1px solid black;
+  border: 1px solid var(--form-border);
 }
 
 .d-none {
@@ -378,7 +481,7 @@ main .main__display__left {
 .divideLine {
   width: 100%;
   height: 2px;
-  background-color: #e6e6eb;
+  background-color: var(--divideLine);
 }
 
 .smmmm {

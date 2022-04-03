@@ -1,3 +1,68 @@
+/*color*/
+:root {
+  --font-color: #2a2a2a;
+  --primary-bg: #ffffff;
+  --secondary-bg: #ffffff;
+  --form-border: #4a4a4a;
+  --main-logo: url("./image/Logo@2x.png");
+  --main-icon1: url("./image/icon@2x_1.png");
+  --main-icon2: url("./image/icon@2x_2.png");
+  --main-icon3: url("./image/icon@2x_3.png");
+  --step-label: black;
+  --step-circle: white;
+  --step-active: black;
+  --step-line: black;
+  --step-circle-container1: black;
+  --form-label: black;
+  --form-radio-bg: white;
+  --form-radio-border: white;
+  --form-radio-mainContent: black;
+  --form-radio-input-sd: black;
+  --form-radio-input-bg: white;
+  --shoppinglist-bg: white;
+  --shoppinglist-control-bg: #f0f0f5;
+  --shoppinglist-control-content: black;
+  --btnleft-bg: white;
+  --btnleft-color: black;
+  --divideLine: #e6e6eb;
+  --rightPart-border: black;
+}
+
+[data-theme="dark"]{
+  --font-color: #ffffff;
+  --primary-bg: #121212;
+  --secondary-bg: #383838;
+  --form-border: #5e5e5e;
+  --main-logo: url("./image/Logo@2x_dark.png");
+  --main-icon1: url("./image/icon@2x_1_dark.png");
+  --main-icon2: url("./image/icon@2x_2_dark.png");
+  --main-icon3: url("./image/icon@2x_3_dark.png");
+  --step-label: #FFFFFF;
+  --step-circle: black;
+  --step-active: white;
+  --step-line: #ffffff;
+  --step-circle-container1: #333333;
+  --form-label: rgba(255, 255, 255, 0.4);
+  --form-radio-bg: black;
+  --form-radio-border: black;
+  --form-radio-mainContent: white;
+  --form-radio-input-sd: rgba(255, 255, 255, 0.4);
+  --form-radio-input-bg: white;
+  --shoppinglist-bg: #383838;
+  --shoppinglist-control-bg: #808080;
+  --shoppinglist-control-content: black;
+  --btnleft-bg: #121212;
+  --btnleft-color: white;
+  --divideLine: rgba(255, 255, 255, 0.2);
+  --rightPart-border: rgba(255, 255, 255, 0.2);
+}
+
+
+* {
+  color: var(--font-color);
+  background-color: var(--primary-bg);
+}
+
 /*header*/
 header {
   margin-left: 5%;
@@ -23,11 +88,15 @@ header {
     grid-column: 6 / 9;
     position: relative;
     img {
+      background-image: var(--main-logo);
       width: 170px;
       height: 30px;
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
+      background-size: contain;
+      background-repeat: no-repeat;
+      
     }
   }
   .header__icon {
@@ -42,6 +111,17 @@ header {
       width: 24px;
       height: 24px;
       margin-left: 31px;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    #icon1{
+      background-image: var(--main-icon1)
+    }
+    #icon2 {
+      background-image: var(--main-icon2)
+    }
+    #icon3 {
+      background-image: var(--main-icon3)
     }
   }
 }
@@ -79,31 +159,31 @@ main {
       width: 24px;
       border-radius: 50%;
       border: #afb1bd 2px solid;
-      background-color: white;
+      background-color: var(--step-circle);
       color: #afb1bd;
       position: relative;
     }
 
     .label-container {
-      color: #afb1bd;
+      color: #AFB1BD;
       margin-left: 5px;
     }
 
     &.active .circle-container {
-      color: black;
-      border: black 2px solid;
+      color: var(--step-active);
+      border: var(--step-active) 2px solid;
     }
 
     &.active .label-container {
-      color: black;
+      color: var(--step-label);
     }
 
     &.checked .label-container {
-      color: black;
+      color: var(--step-label);
     }
 
     &:nth-child(1) .circle-container {
-      background-color: black;
+      background-color: var(--step-circle-container1);
       color: white;
       border: black 2px solid;
     }
@@ -121,8 +201,8 @@ main {
     }
 
     &.checked .circle-container {
-      background-color: black;
-      border: black solid 2px;
+      background-color: var(--step-circle-container1);
+      border: var(--step-circle-container1) solid 2px;
     }
     &.checked .circle-container::after {
       content: "\2714";
@@ -136,7 +216,7 @@ main {
       display: block;
       height: 3px;
       width: 50%;
-      background-color: black;
+      background-color: var(--step-line);
       position: absolute;
       top: 50%;
       left: 50%;
@@ -152,6 +232,7 @@ main {
   }
   label {
     font-size: 12px;
+    color: var(--form-label);
   }
   .form__row {
     width: 100%;
@@ -209,10 +290,11 @@ main {
     height: 30px;
     line-height: 30px;
     border: none;
+
   }
   .form__radio {
-    background-color: white;
-    border: 1px solid black;
+    background-color: var(--form-radio-bg);
+    border: 1px solid var(--form-border);
     display: flex;
     flex-wrap: wrap;
     grid-column: 1 / 13;
@@ -228,10 +310,10 @@ main {
       height: 20px;
       -webkit-appearance: none;
       border-radius: 50%;
-      border: black 1px solid;
+      border: var(--form-border) 1px solid;
       cursor: pointer;
       &:checked {
-        box-shadow: inset 0 0 0 5px black;
+        box-shadow: inset 0 0 0 5px var(--form-radio-input-sd);
       }
     }
     .form__radio__deliver {
@@ -242,15 +324,19 @@ main {
       .deliver__method {
         flex: 1;
         font-size: 14px;
+        background-color: var(--form-radio-bg);
       }
       .deliver__price {
         text-align: right;
         flex: 1;
         font-size: 12px;
+        background-color: var(--form-radio-bg);
       }
       .deliver__duration {
         flex: 100%;
         font-size: 12px;
+        background-color: var(--form-radio-bg);
+        color: gray;
       }
     }
   }
@@ -271,8 +357,8 @@ main {
       right: 0;
     }
     .btnleft {
-      background-color: white;
-      color: black;
+      background-color: var(--btnleft-bg);
+      color: var(--btnleft-color);
       position: absolute;
       left: 0;
     }
@@ -283,15 +369,21 @@ main {
 .main__display__right {
   grid-column: 9 / 14;
   .totalrightview {
+    background-color: var(--secondary-bg);
     border-radius: 8px;
-    border: 1px black solid;
+    border: 1px var(--rightPart-border) solid;
     padding: 32px 32px 24px 24px;
     h4 {
       margin-bottom: 34px;
+      background-color: var(--shoppinglist-bg);
     }
+  }
+  .havebuyItems{
+    background-color: var(--shoppinglist-bg);
   }
   .buyItem {
     display: flex;
+    background-color: var(--shoppinglist-bg);
     margin-bottom: 20px;
     width: 100%;
     img {
@@ -301,25 +393,29 @@ main {
       margin-right: 24px;
     }
     .itemContent {
+      background-color: var(--shoppinglist-bg);
       display: flex;
       width: 100%;
       flex-wrap: wrap;
     }
     .itemName {
+      background-color: var(--shoppinglist-bg);
       flex: 70%;
     }
     .itemPrice {
+      background-color: var(--shoppinglist-bg);
       flex: 30%;
       text-align: right;
     }
     .itemControl {
       width: 60%;
       display: flex;
+      background-color: var(--shoppinglist-bg);
       .minus1,
       .plus1 {
         width: 26px;
         height: 26px;
-        background-color: #f0f0f5;
+        background-color: var(--shoppinglist-control-bg);
         border-radius: 50%;
         text-align: center;
         position: relative;
@@ -332,6 +428,7 @@ main {
         position: absolute;
         top: 50%;
         left: 50%;
+        color: var(--shoppinglist-control-content);
         transform: translate(-50%, -50%);
       }
       .plus1::after {
@@ -340,6 +437,10 @@ main {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        color: var(--shoppinglist-control-content);
+      }
+      .itemNum{
+        background-color: var(--shoppinglist-bg);
       }
     }
   }
@@ -349,6 +450,10 @@ main {
     justify-content: space-between;
     margin-top: 20px;
     margin-bottom: 20px;
+    background-color: var(--shoppinglist-bg);
+    > div {
+      background-color: var(--shoppinglist-bg);
+    }
   }
 }
 
@@ -356,7 +461,7 @@ main {
   width: calc(100% - 10px);
   height: 30px;
   border-radius: 4px;
-  border: 1px solid black;
+  border: 1px solid var(--form-border);
 }
 
 .d-none {
@@ -366,7 +471,7 @@ main {
 .divideLine {
   width: 100%;
   height: 2px;
-  background-color: #e6e6eb;
+  background-color: var(--divideLine);
 }
 
 .smmmm {

@@ -1,3 +1,18 @@
+// darkmode
+const mode = document.querySelector('#icon3')
+let modeNum = 0
+mode.addEventListener('click', ()=>{
+  if(modeNum === 0) {
+    document.documentElement.setAttribute("data-theme", "dark");
+    modeNum += 1;
+  } else {
+    document.documentElement.setAttribute("data-theme", "light");
+    modeNum -= 1;
+  }
+})
+
+
+
 // 處理stepper的變化
 const formParts = document.querySelectorAll('.part')
 const btnControl = document.querySelector('.controlpanel')
