@@ -1,22 +1,51 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import NotFound from '../views/NotFound.vue'
+import SignIn from '../views/SignIn.vue'
+import Restaurants from '../views/Restaurants.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'root',
+    redirect: '/restaurants'
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/signin',
+    name: 'sign-in',
+    component: SignIn,
+  },
+  {
+    path: '/signup',
+    name: 'sign-up',
+    component: () => import('../views/SignUp.vue')
+  },
+  {
+    path: '/restaurants',
+    name: 'restaurants',
+    component: Restaurants
+  },
+  {
+    path: '/restaurants/feeds',
+    name: 'restaurants-feeds',
+    component: () => import('../views/RestaurantsFeeds.vue')
+  },
+  {
+    path: '/restaurants/top',
+    name: 'restaurants-tops',
+    component: () => import('../views/RestaurantsTop.vue')
+  },
+  {
+    path: '/users/top',
+    name: 'users-top',
+    component: () => import('../views/UsersTop.vue')
+  },
+  {
+    path: '*',
+    name: 'not-found',
+    component: NotFound,
   }
 ]
 
