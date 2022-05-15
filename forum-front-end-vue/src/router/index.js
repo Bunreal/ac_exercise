@@ -13,7 +13,7 @@ export default new Router({
     {
       path: '/',
       name: 'root',
-      redirect: '/restaurants'
+      redirect: '/signin'
     },
     {
       path: '/signin',
@@ -84,6 +84,11 @@ export default new Router({
       path: '/admin/categories',
       name: 'admin-categories',
       component: () => import('../views/AdminCategories.vue')
+    },
+    {
+      path: '/admin/users',
+      name: 'admin-users',
+      component: () => import('../views/AdminUsers.vue')
     },
     {
       path: '/users/:id',

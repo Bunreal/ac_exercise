@@ -7,80 +7,132 @@
     </h1>
     <hr>
     <div class="row text-center">
-      <UserCard 
+      <div class="col-3"         
         v-for="user in users"
-        :key="user.id"
-        :user="user"
-      />
+        :key="user.id">
+      <a href="#">
+        <img
+          :src="user.image | emptyImage"
+          width="140px"
+          height="140px"
+        >
+      </a>
+      <h2>{{user.name}}</h2>
+      <span class="badge badge-secondary">追蹤人數：{{user.FollowerCount}}</span>
+      <p class="mt-3">
+        <button
+          v-if="user.isFollowed"
+          type="button"
+          class="btn btn-danger"
+          @click.stop.prevent="deleteFollowing(user.id)"
+        >
+          取消追蹤
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          v-else
+          @click.stop.prevent="addFollowing(user.id)"    
+        >
+          追蹤
+        </button>
+      </p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import NavTabs from '../components/NavTabs.vue'
-import UserCard from '../components/UserCard.vue'
+import { emptyImageFilter } from './../utils/mixins'
 
-const dummyData = {
-  "users": [
-      {
-          "id": 1,
-          "name": "root",
-          "email": "root@example.com",
-          "password": "$2a$10$QJsMzOMuaTfmav.PQmVF6.jqAA.vp5juQw3ivXKlzG5DfBAikwJLW",
-          "isAdmin": true,
-          "image": 'https://images.pexels.com/photos/810775/pexels-photo-810775.jpeg?cs=srgb&dl=pexels-kelvin-valerio-810775.jpg&fm=jpg',
-          "createdAt": "2022-01-29T05:08:35.000Z",
-          "updatedAt": "2022-01-29T05:08:35.000Z",
-          "Followers": [],
-          "FollowerCount": 0,
-          "isFollowed": false
-      },
-      {
-          "id": 2,
-          "name": "user1",
-          "email": "user1@example.com",
-          "password": "$2a$10$UFa3U.XCvphRqbN4kvSuuOjxQclcrZGcVOhfEsW/cAXw.NIlc5d/K",
-          "isAdmin": false,
-          "image": "https://images.pexels.com/photos/321576/pexels-photo-321576.jpeg?cs=srgb&dl=pexels-alexandr-podvalny-321576.jpg&fm=jpg",
-          "createdAt": "2022-01-29T05:08:35.000Z",
-          "updatedAt": "2022-01-29T05:08:35.000Z",
-          "Followers": [],
-          "FollowerCount": 0,
-          "isFollowed": false
-      },
-      {
-          "id": 3,
-          "name": "user2",
-          "email": "user2@example.com",
-          "password": "$2a$10$wWs0yBxnj/.K/adzNCPqheRjlgRsrlLNVNag3JSzj9al8NOB3e666",
-          "isAdmin": false,
-          "image": "https://images.pexels.com/photos/3094215/pexels-photo-3094215.jpeg?cs=srgb&dl=pexels-valeria-ushakova-3094215.jpg&fm=jpg",
-          "createdAt": "2022-01-29T05:08:35.000Z",
-          "updatedAt": "2022-01-29T05:08:35.000Z",
-          "Followers": [],
-          "FollowerCount": 0,
-          "isFollowed": false
-      }
-  ]
-}
+import { Toast } from './../utils/helpers'
+import usersAPI from './../apis/users'
 
 export default {
   components: {
     NavTabs,
-    UserCard
   },
+  mixins: [emptyImageFilter],
   data () {
     return {
       users: []
     }
   },
   methods: {
-    fetchUsers(){
-      this.users = {...dummyData.users}
+    async fetchTopUsers () {
+      try {
+        const { data } = await usersAPI.getTopUsers()
+        this.users = data.users.map(user => ({
+          id: user.id,
+          name: user.name,
+          image: user.image,
+          followerCount: user.FollowerCount,
+          isFollowed: user.isFollowed
+        }))
+      } catch (error) {
+        console.log(error)
+        Toast.fire({
+          icon: 'error',
+          title: '無法取得美食達人，請稍後再試'
+        })
+      }
+    },
+    async addFollowing (userId) {
+      try {
+        const { data } = await usersAPI.addFollowing({ userId })
+
+        console.log('data', data)
+
+        if (data.status !== 'success') {
+          throw new Error(data.message)
+        }
+
+        this.users = this.users.map(user => {
+          if (user.id !== userId) {
+            return user
+          } else {
+            return {
+              ...user,
+              followerCount: user.followerCount + 1,
+              isFollowed: true
+            }
+          }
+        })
+      } catch (error) {
+        Toast.fire({
+          icon: 'error',
+          title: '無法加入追蹤，請稍後再試'
+        })
+      }
+    },
+    async deleteFollowing (userId) {
+      try {
+        const { data } = await usersAPI.deleteFollowing({ userId })
+        if (data.status !== 'success') {
+          throw new Error(data.message)
+        }
+        this.users = this.users.map(user => {
+          if (user.id !== userId) {
+            return user
+          } else {
+            return {
+              ...user,
+              followerCount: user.followerCount - 1,
+              isFollowed: false
+            }
+          }
+        })
+      } catch (error) {
+        Toast.fire({
+          icon: 'error',
+          title: '無法取消追蹤，請稍後再試'
+        })
+      }
     }
   },
   created(){
-    this.fetchUsers()
+    this.fetchTopUsers()
   }
 }
 </script>

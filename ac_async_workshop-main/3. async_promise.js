@@ -2,7 +2,7 @@ const { users, restaurants } = require('./data')
 const RestaurantModel = require('./restaurant')
 const UserModel = require('./user')
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/restaurant_list_async_promise')
+mongoose.connect('mongodb://localhost/restaurant_list_async_callback')
 const db = mongoose.connection
 
 // 連接資料庫: db.once('open', callback)
@@ -16,12 +16,21 @@ db.once('open', () => {
       UserModel.create({
         ...user
       }).then((user) => {
+        console.log('user created')
         // 對每個user建立相對應餐廳資料
-        return RestaurantModel.create(restaurants)
+        const userRestaurant = []
+        restaurants.forEach((restaurant, rest_index) => {
+          if (rest_index >= 3 * user_index && rest_index < 3 * (user_index + 1)) {
+            restaurant.userId = user._id
+            userRestaurant.push(restaurant)
+          }
+        })
+        return RestaurantModel.create(userRestaurant)
       }).then(() => {
-        resolve()
-      }).catch(error => {
-        console.log(error)
+        console.log('restaurant created')
+        if (user_index >= users.length - 1) {
+          resolve()
+        }
       })
     }
   }).then(() => {
