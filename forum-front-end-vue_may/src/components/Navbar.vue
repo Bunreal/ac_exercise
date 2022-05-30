@@ -2,12 +2,7 @@
 
 <template>
   <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-    <router-link
-      class="navbar-brand"
-      to="/"
-    >
-      餐廳評論網
-    </router-link>
+    <router-link class="navbar-brand" to="/"> 餐廳評論網 </router-link>
 
     <button
       class="navbar-toggler"
@@ -21,33 +16,27 @@
       <span class="navbar-toggler-icon" />
     </button>
 
-    <div
-      id="navbarSupportedContent" 
-      class="navbar-collapse collapse"
-    >
+    <div id="navbarSupportedContent" class="navbar-collapse collapse">
       <div class="ml-auto d-flex align-items-center">
         <!-- if user is admin -->
         <router-link
-             to="#" 
-             class="text-white mr-3"
-             v-if="currentUser.isAdmin"
+          to="/admin"
+          class="text-white mr-3"
+          v-if="currentUser.isAdmin"
         >
-         管理員後台
-       </router-link>
+          管理員後台
+        </router-link>
 
         <!-- if user is login -->
         <template v-if="isAuthenticated">
-          <router-link 
-             to="#" 
-             class="text-white mr-3"
-          > 
-          {{ currentUser.name || "使用者" }} 您好
-         </router-link>
-         <button
-           type="button" 
-           class="btn btn-sm btn-outline-success my-2 my-sm-0"
+          <router-link to="#" class="text-white mr-3">
+            {{ currentUser.name || "使用者" }} 您好
+          </router-link>
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-success my-2 my-sm-0"
           >
-           登出
+            登出
           </button>
         </template>
       </div>
@@ -59,40 +48,39 @@
 const dummyUser = {
   currentUser: {
     id: 1,
-    name: '管理者',
-    email: 'root@example.com',
-    image: 'https://i.pravatar.cc/300',
-    isAdmin: true
+    name: "管理者",
+    email: "root@example.com",
+    image: "https://i.pravatar.cc/300",
+    isAdmin: true,
   },
-  isAuthenticated: true
-}
+  isAuthenticated: true,
+};
 
 export default {
   // Vue 會在沒有資料時使用此預設值
-  data () {
+  data() {
     return {
       currentUser: {
         id: -1,
-        name: '',
-        email: '',
-        image: '',
-        isAdmin: false
+        name: "",
+        email: "",
+        image: "",
+        isAdmin: false,
       },
-      isAuthenticated: false
-    }
+      isAuthenticated: false,
+    };
   },
-  created () {
-    this.fetchUser()
+  created() {
+    this.fetchUser();
   },
   methods: {
-    fetchUser () {
+    fetchUser() {
       this.currentUser = {
         ...this.currentUser,
-        ...dummyUser.currentUser
-      }
-      this.isAuthenticated = dummyUser.isAuthenticated
-    }
-  }
-}
-
+        ...dummyUser.currentUser,
+      };
+      this.isAuthenticated = dummyUser.isAuthenticated;
+    },
+  },
+};
 </script>
