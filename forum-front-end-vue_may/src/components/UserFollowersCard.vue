@@ -1,7 +1,7 @@
 <template>
   <div class="card" bis_skin_checked="1">
     <div class="card-header" bis_skin_checked="1">
-      <strong>3</strong> followers (追隨者)
+      <strong>{{ userFollowers.length }}</strong> followers (追隨者)
     </div>
     <div class="card-body" bis_skin_checked="1">
       <router-link

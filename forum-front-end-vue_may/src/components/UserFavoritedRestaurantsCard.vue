@@ -1,7 +1,7 @@
 <template>
   <div class="card" bis_skin_checked="1">
     <div class="card-header" bis_skin_checked="1">
-      <strong>4</strong> 收藏的餐廳
+      <strong>{{ userFavoritedRestaurants.length }}</strong> 收藏的餐廳
     </div>
     <div class="card-body" bis_skin_checked="1">
       <router-link

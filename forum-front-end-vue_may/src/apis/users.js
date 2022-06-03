@@ -1,41 +1,61 @@
 // ./src/apis/users.js
-import { apiHelper } from '../utils/helpers'
-const getToken = () => localStorage.getItem('token')
+import { apiHelper } from "../utils/helpers";
+const getToken = () => localStorage.getItem("token");
 
 export default {
-  addFavorite ({ restaurantId }) {
+  addFavorite({ restaurantId }) {
     return apiHelper.post(`/favorite/${restaurantId}`, null, {
-      headers: { Authorization: `Bearer ${getToken()}` }
-    })
+      headers: { Authorization: `Bearer ${getToken()}` },
+    });
   },
-  deleteFavorite ({ restaurantId }) {
+  deleteFavorite({ restaurantId }) {
     return apiHelper.delete(`/favorite/${restaurantId}`, {
-      headers: { Authorization: `Bearer ${getToken()}` }
-    })
+      headers: { Authorization: `Bearer ${getToken()}` },
+    });
   },
-  addLike ({ restaurantId }) {
+  addLike({ restaurantId }) {
     return apiHelper.post(`/like/${restaurantId}`, null, {
-      headers: { Authorization: `Bearer ${getToken()}` }
-    })
+      headers: { Authorization: `Bearer ${getToken()}` },
+    });
   },
-  deleteLike ({ restaurantId }) {
+  deleteLike({ restaurantId }) {
     return apiHelper.delete(`/like/${restaurantId}`, {
-      headers: { Authorization: `Bearer ${getToken()}` }
-    })
+      headers: { Authorization: `Bearer ${getToken()}` },
+    });
   },
-  getTopUsers () {
-    return apiHelper.get('/users/top', {
-      headers: { Authorization: `Bearer ${getToken()}` }
-    })
+  getCurrentUser() {
+    return apiHelper.get(`/get_current_user`, {
+      headers: { Authorization: `Bearer ${getToken()}` },
+    });
   },
-  addFollowing ({ userId }) {
+  get({ userId }) {
+    return apiHelper.get(`/users/${userId}`, {
+      headers: { Authorization: `Bearer ${getToken()}` },
+    });
+  },
+  getTopUsers() {
+    return apiHelper.get("/users/top", {
+      headers: { Authorization: `Bearer ${getToken()}` },
+    });
+  },
+  addFollowing({ userId }) {
     return apiHelper.post(`/following/${userId}`, null, {
-      headers: { Authorization: `Bearer ${getToken()}` }
-    })
+      headers: { Authorization: `Bearer ${getToken()}` },
+    });
   },
-  deleteFollowing ({ userId }) {
+  deleteFollowing({ userId }) {
     return apiHelper.delete(`/following/${userId}`, {
-      headers: { Authorization: `Bearer ${getToken()}` }
-    })
-  }
-}
+      headers: { Authorization: `Bearer ${getToken()}` },
+    });
+  },
+  addComment({ comment }) {
+    return apiHelper.post("/comments/", comment, {
+      headers: { Authorization: `Bearer ${getToken()}` },
+    });
+  },
+  deleteComment({ commentId }) {
+    return apiHelper.post(`/comments/${commentId}`, {
+      headers: { Authorization: `Bearer ${getToken()}` },
+    });
+  },
+};
