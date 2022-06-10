@@ -36,7 +36,6 @@ export default {
   methods: {
     async handleAfterSubmit(formData) {
       try {
-        //console.log("formData", formData);
         this.isProcessing = true;
         const { data } = await adminAPI.restaurants.update({
           restaurantId: this.restaurant.id,
