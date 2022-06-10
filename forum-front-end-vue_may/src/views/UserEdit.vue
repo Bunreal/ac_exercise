@@ -99,6 +99,7 @@ export default {
         }
         const form = e.target;
         const formData = new FormData(form);
+        console.log("formData", formData);
         const userId = this.currentUser.id;
         const { data } = await usersAPI.update({ userId, formData });
         console.log(data);
