@@ -1,7 +1,9 @@
 // ./src/views/AdminRestaurant.vue
 <template>
   <div class="container py-5">
-    <div class="row">
+    <Spinner v-if="isLoading" />
+
+    <div class="row" v-else>
       <div class="col-md-12">
         <h1>{{ restaurant.name }}</h1>
         <span class="badge badge-secondary mt-1 mb-3">
@@ -44,10 +46,14 @@
 <script>
 import { emptyImageFilter } from "./../utils/mixins";
 import adminAPI from "../apis/admin";
+import Spinner from "./../components/Spinner.vue";
 
 export default {
   name: "AdminRestaurant",
   mixins: [emptyImageFilter],
+  components: {
+    Spinner,
+  },
   data() {
     return {
       restaurant: {
@@ -60,6 +66,7 @@ export default {
         address: "",
         description: "",
       },
+      isLoading: true,
     };
   },
   mounted() {
@@ -84,7 +91,10 @@ export default {
           address: restaurant.address,
           description: restaurant.description,
         };
+        this.isLoading = false;
       } catch (error) {
+        this.isLoading = false;
+
         console.log(error);
       }
     },
